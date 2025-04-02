@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THETECMENS</title>
     <link rel="stylesheet" href="../Login/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
 </head>
 <body>
+    
+    <!-- Nav bar -->
+    <?php include '../assets/includes/header.php'; ?>
+
     <div class="super__container">
         <div class="container">
-            <div class="login__container">
+            <di v class="login__container">
                 <img src="/STYLES_index_login/img/logo-sena.png" alt="" class="logo__container">
                 <h2 class="title__container"> REGISTRAR </h2>
                 <p class="welcome__container"> Bienvenido a la tienda THETECMENS </p>
@@ -34,9 +40,9 @@
                 
                     <button type="submit" class="login-button__form">INICIAR SESIÓN</button>
                 </form>
-            </div>
+            </di>
 
         </div>
-    </div>
+    </div>  
 </body>
 </html>

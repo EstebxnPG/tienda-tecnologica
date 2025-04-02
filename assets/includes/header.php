@@ -1,7 +1,7 @@
 <body>
     <header>
       <div class="menu logo-nav">
-        <a href="index.html" class="logo">THETECMENS</a>
+        <a href="../../index.php" class="logo">THETECMENS</a>
         <label class="menu-icon"><span class="fas fa-bars icomin"></span></label>
         <nav class="navigation">
           <ul>
@@ -22,7 +22,7 @@
             </li>
             <header>
               <div class="menu logo-nav">
-                <a href="index.html" class="logo">THETECMENS</a>
+                <a href="/tienda-tecnologica/index.php" class="logo">THETECMENS</a>
                 <label class="menu-icon"><span class="fas fa-bars icomin"></span></label>
                 <nav class="navigation">
                   <ul>
@@ -43,8 +43,8 @@
                       </a>
                     </li>
                     <li class="auth-buttons">
-                      <a href="login.html" class="btn login-btn">Login</a>
-                      <a href="registro.html" class="btn register-btn">Registro</a>
+                      <a href="/tienda-tecnologica/Login/login.php" class="btn login-btn">Login</a>
+                      <a href="/tienda-tecnologica/register/registro.php" class="btn register-btn">Registro</a>
                     </li>
                   </ul>
                 </nav>

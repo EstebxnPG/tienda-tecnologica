@@ -252,7 +252,7 @@ main{
     display: flex;
     padding: 0;
     width: 300%;
-    animation: cambio 20s infinite;
+    animation: cambio 15s infinite;
     animation-direction: alternate;
     animation-timing-function: linear;
 }
@@ -468,10 +468,10 @@ main{
     padding-left: 25px; */
     text-align: center;
 }
-.columna2{
+/* .columna2{ */
     /* width: 40%;
     float: right; */
-}
+/* } */
 .columna2 img{
     width: 450px;
 }
@@ -548,7 +548,6 @@ main{
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
 }
-
 
 /* Footer */
 .footer {
