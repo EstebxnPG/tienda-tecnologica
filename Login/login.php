@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THETECMENS</title>
     <link rel="stylesheet" href="../Login/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+        <!-- Nav bar -->
+        <?php include '../assets/includes/header.php'; ?>
     <div class="super__container">
         <div class="container">
             
@@ -29,5 +32,6 @@
 
         </div>
     </div>
+
 </body>
 </html>
