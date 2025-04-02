@@ -126,8 +126,9 @@ body {
 }
 
 .login-button__form {
-    background-color: #28a745;
+    background-color: var(--basic-orange-900);
     color: white;
+    font-weight: bold;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -136,5 +137,5 @@ body {
 }
 
 .login-button__form:hover {
-    background-color: #218838;
+    background-color: #FCB454;
 }
