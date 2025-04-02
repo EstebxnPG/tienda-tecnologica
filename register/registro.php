@@ -18,7 +18,7 @@
         <div class="container">
             <di v class="login__container">
                 <img src="/STYLES_index_login/img/logo-sena.png" alt="" class="logo__container">
-                <h2 class="title__container"> INICIA SESIÓN </h2>
+                <h2 class="title__container"> REGISTRAR </h2>
                 <p class="welcome__container"> Bienvenido a la tienda THETECMENS </p>
                 <form class="form login__form">
                     <label class="form__label" for="email">Nombre completo</label>
