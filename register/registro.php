@@ -31,7 +31,7 @@
                     <input type="email" class="form__input" name="email" placeholder="Ingresa tu correo" >
                     <br>
                     <label class="form__label" for="password">Contraseña</label>
-                    <input type="password" class="form__input" name="password" placeholder="Ingresa tu contraseña">
+                    <input type="password" class="form__input" name="password" placeholder="Ingresa tu contraseña" required>
                     <br>
                     <button type="submit" class="login-button__form">REGISTRARSE</button>
                 </form>
@@ -39,5 +39,7 @@
 
         </div>
     </div>  
+
 </body>
+
 </html>
