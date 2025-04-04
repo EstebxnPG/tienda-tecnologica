@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,21 +19,19 @@
                 <img src="/STYLES_index_login/img/logo-sena.png" alt="" class="logo__container">
                 <h2 class="title__container"> REGISTRAR </h2>
                 <p class="welcome__container"> Bienvenido a la tienda THETECMENS </p>
-                <form class="form login__form">
-                    <label class="form__label" for="email">Nombre completo</label>
-                    <input type="email" class="form__input" id="email" name="email" placeholder="Ingresa tu correo" >
+                <form class="form login__form"action="validacion.php" method="POST">
+                    
+                    <label class="form__label" for="nombre">Nombre completo</label>
+                    <input type="text" class="form__input" name="nombre" placeholder="Ingresa tu nombre" >
                     <br>
-                    <label class="form__label" for="password">telefono</label>
-                    <input type="tel" class="form__input" id="tel" name="tel" placeholder="Ingresa tu contraseña">
+                    <label class="form__label" for="apellido">Apellido</label>
+                    <input type="text" class="form__input" name="apellido" placeholder="Ingresa tu apellido">
                     <br>
                     <label class="form__label" for="email">Correo Electrónico</label>
-                    <input type="email" class="form__input" id="email" name="email" placeholder="Ingresa tu correo" >
-                    <br>
-                    <label class="form__label" for="password">Confirmacion de correo eletronico</label>
-                    <input type="email" class="form__input" id="email" name="email" placeholder="Ingresa tu contraseña">
+                    <input type="email" class="form__input" name="email" placeholder="Ingresa tu correo" >
                     <br>
                     <label class="form__label" for="password">Contraseña</label>
-                    <input type="password" class="form__input" id="password" name="password" placeholder="Ingresa tu contraseña">
+                    <input type="password" class="form__input" name="password" placeholder="Ingresa tu contraseña">
                     <br>
                     <a href="/SGVA OLVIDO SU CONTRASEÑA/HTML Olvido contraseña/index2.html" class="forgot_password">¿Olvidaste tu contraseña?</a>
                 
