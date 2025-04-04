@@ -33,8 +33,6 @@
                     <label class="form__label" for="password">Contraseña</label>
                     <input type="password" class="form__input" name="password" placeholder="Ingresa tu contraseña">
                     <br>
-                    <a href="/SGVA OLVIDO SU CONTRASEÑA/HTML Olvido contraseña/index2.html" class="forgot_password">¿Olvidaste tu contraseña?</a>
-                
                     <button type="submit" class="login-button__form">INICIAR SESIÓN</button>
                 </form>
             </div>
