@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost"; 
 $username = "root"; 
-$password = "123456"; 
-$database = "thetecmens"; 
+$password = ""; 
+$database = "tienda_sena"; 
 
 
 $conn = new mysqli($servername, $username, $password, $database);
