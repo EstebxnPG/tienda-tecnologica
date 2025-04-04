@@ -22,11 +22,14 @@
                 <span class="fas fa-search"></span>
               </label>
             </li>
-            <li class="car"><a href="carrito.html" >
-              <svg class="bi bi-cart3" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-              </svg></a>
-            </li>
+            <li class="car">
+              <a href="carrito.html" title="Ir al carrito de compras">
+                  <span class="sr-only">Carrito de compras</span>
+                  <svg class="bi bi-cart3" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1h2a.5.5 0 0 1 .49.4L3.89 5H14a.5.5 0 0 1 .49.6l-1.5 7A.5.5 0 0 1 12.5 13h-10a.5.5 0 0 1-.49-.4L.61 3H.5a.5.5 0 0 1 0-1H2a.5.5 0 0 1 .5.5v.5H1.61l1.5 7H12.5l1.5-7H3.89L2.99 1.9A.5.5 0 0 1 2.5 1.5H.5z"/>
+                  </svg>
+              </a>
+          </li>          
           </ul>
         </nav>
       </div>
@@ -75,15 +78,17 @@
                               <tr>
                                   <th colspan="4" scope="col" class="">TOTAL :</th>
                                   <th scope="col">
-                                    <input type="text" id="total" name="monto_total" readonly>
+                                    <label for="total">Monto Total:</label>
+                                    <input type="text" id="total" name="monto_total" readonly title="Monto total calculado" placeholder="0.00">
                                   </th>
                               </tr>
                           </table>
                       </div>
 
                       <div class="" id="loaders">
-                          <img id="cargando" src="assets/img/cargando.gif" width="220">
+                        <img id="cargando" src="assets/img/cargando.gif" width="220" alt="Cargando..." title="Imagen de carga">
                       </div>
+                    
 
                       <div class="botones-envio">
                               <a href="productos.html" class="button" id="volver">Seguir comprando</a>
