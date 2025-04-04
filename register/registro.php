@@ -21,7 +21,7 @@
                 <p class="welcome__container"> Bienvenido a la tienda THETECMENS </p>
                 <form class="form login__form"action="validacion.php" method="POST">
                     
-                    <label class="form__label" for="nombre">Nombre completo</label>
+                    <label class="form__label" for="nombre">Nombre</label>
                     <input type="text" class="form__input" name="nombre" placeholder="Ingresa tu nombre" >
                     <br>
                     <label class="form__label" for="apellido">Apellido</label>
@@ -33,7 +33,7 @@
                     <label class="form__label" for="password">Contraseña</label>
                     <input type="password" class="form__input" name="password" placeholder="Ingresa tu contraseña">
                     <br>
-                    <button type="submit" class="login-button__form">INICIAR SESIÓN</button>
+                    <button type="submit" class="login-button__form">REGISTRARSE</button>
                 </form>
             </div>
 
