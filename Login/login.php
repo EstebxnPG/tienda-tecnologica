@@ -17,7 +17,7 @@
                 <img src="/STYLES_index_login/img/logo-sena.png" alt="" class="logo__container">
                 <h2 class="title__container"> INICIA SESIÓN </h2>
                 <p class="welcome__container"> Bienvenido a la tienda THETECMENS </p>
-                <form class="form login__form">
+                <form class="form login__form method="POST" action="procesar_login.php"">
                     <label class="form__label" for="email">Correo Electrónico</label>
                     <input type="email" class="form__input" id="email" name="email" placeholder="Ingresa tu correo" >
                     <br>

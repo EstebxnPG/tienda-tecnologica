@@ -673,3 +673,52 @@ main{
     }    
 
 }
+
+.login__container {
+    /* padding-top: 50px;
+    margin-top: 50px; */
+    position: relative;
+    top: 50px;
+    /* margin: 50px auto; */
+}
+
+
+/* Contenedor del dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Ocultar el contenido del dropdown por defecto */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Mostrar el dropdown cuando se pase el mouse */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+/* Estilos de los elementos del dropdown */
+.dropdown-content li {
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+/* Cambio de color al pasar el mouse */
+.dropdown-content li:hover {
+    background-color: #f1f1f1;
+}

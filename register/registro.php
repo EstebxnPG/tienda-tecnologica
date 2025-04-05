@@ -15,7 +15,7 @@
 
     <div class="super__container">
         <div class="container">
-            <div v class="login__container">
+            <div class="login__container">
                 <img src="/STYLES_index_login/img/logo-sena.png" alt="" class="logo__container">
                 <h2 class="title__container"> REGISTRAR </h2>
                 <p class="welcome__container"> Bienvenido a la tienda THETECMENS </p>

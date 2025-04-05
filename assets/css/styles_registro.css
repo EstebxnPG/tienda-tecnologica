@@ -273,3 +273,8 @@
         height: auto;
     }
 }
+
+.login__container {
+    margin-top: 50px; /* Ajusta según sea necesario */
+    padding-top: 50px;
+}
