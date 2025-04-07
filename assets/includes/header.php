@@ -99,19 +99,24 @@ if (session_status() === PHP_SESSION_NONE) {
     
     <script>
 
-const toggle = document.querySelector('.dropdown-toggle');
-const menu = document.querySelector('.dropdown-menu');
+const dropdowns = document.querySelectorAll('.dropdown');
 
-toggle.addEventListener('click', () => {
-menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+dropdowns.forEach(dropdown => {
+  const toggle = dropdown.querySelector('.dropdown-toggle');
+  const menu = dropdown.querySelector('.dropdown-menu');
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
 });
 
-// Opcional: Cierra el menú si clickea afuera
-window.addEventListener('click', (e) => {
-if (!e.target.matches('.dropdown-toggle')) {
-menu.style.display = 'none';
-}
+window.addEventListener('click', () => {
+  document.querySelectorAll('.dropdown-menu').forEach(menu => {
+    menu.style.display = 'none';
+  });
 });
+
 </script>
 
 <!-- Estilos por que no los pude linkear  (DPG) -->

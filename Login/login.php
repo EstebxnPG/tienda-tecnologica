@@ -9,7 +9,7 @@
 </head>
 <body>
         <!-- Nav bar -->
-        <?php include '../assets/includes/header.php'; ?>
+    <?php include '../assets/includes/header.php'; ?>
     <div class="super__container">
         <div class="container">
             

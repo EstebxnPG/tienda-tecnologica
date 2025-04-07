@@ -6,6 +6,8 @@
     <title>THETECMENS</title>
     <link rel="stylesheet" href="../Login/style.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- head -->
+ <?php include '../assets/includes/head.php'; ?>
     
 </head>
 <body>
