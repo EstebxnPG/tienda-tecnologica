@@ -9,11 +9,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST['password']);
 
     if (empty($nombre) || empty($apellido) || empty($email) || empty($password)) {
-        $mensaje = "Todos los campos son obligatorios.";
+        echo "<script>
+        alert('!Falla en el registo! No se pudo completar.');
+        window.location.href = '../register/registro.php';
+      </script>";   
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $mensaje = "El correo electrónico no es válido.";
+        echo "<script>
+        alert('!Falla en el registo! No se pudo completar.');
+        window.location.href = '../register/registro.php';
+      </script>";
     } elseif (strlen($password) < 6) {
-        $mensaje = "La contraseña debe tener al menos 6 caracteres.";
+        echo "<script>
+        alert('!Falla en el registo! No se pudo completar.');
+        window.location.href = '../register/registro.php';
+      </script>";
     } else {
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
