@@ -99,7 +99,7 @@ if (session_status() === PHP_SESSION_NONE) {
     
     <script>
 
-const toggle = document.querySelectorAll('.dropdown-toggle');
+const toggle = document.querySelector('.dropdown-toggle');
 const menu = document.querySelector('.dropdown-menu');
 
 toggle.addEventListener('click', () => {
