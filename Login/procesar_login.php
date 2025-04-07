@@ -7,32 +7,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = isset($_POST['email']) ? $_POST['email'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    // Validar que no estén vacíos
     if (empty($email) || empty($password)) {
-        echo "Por favor completa todos los campos.";
+        echo "<script>
+        alert('¡Por favor completar todos los campos!');
+        window.location.href = 'login.php';
+        </script>";  
         exit();
     }
 
-    // Buscar usuario
+    if($email == 'admin@admin.com' && $password == 'contraseña'){
+        $_SESSION['email'] = $email;
+        $_SESSION['nombre'] = 'Super Administrador';
+        $_SESSION['rol'] = 'super';
+
+        echo "<script>
+        alert('¡Bienvenido Super Administrador!');
+        window.location.href = '../index.php';
+        </script>";  
+        exit();
+    }
+
     $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($row = $result->fetch_assoc()) {
-        // Validar contraseña hasheada
         if (password_verify($password, $row['password'])) {
             $_SESSION['email'] = $row['email'];
+            $_SESSION['nombre'] = $row['nombre'];
+            $_SESSION['rol'] = 'usuario';
+
             echo "<script>
-            alert('¡Inicio Sesión Exitoso! Ahora puedes navegar.');
+            alert('¡Inicio Sesión Exitoso!');
             window.location.href = '../index.php';
-          </script>";   
+            </script>";   
             exit();
         } else {
-            echo "Contraseña incorrecta.";
+            echo "<script>
+            alert('Email o Contraseña Incorrectos!');
+            window.location.href = 'login.php';
+            </script>";  
         }
     } else {
-        echo "El correo no está registrado.";
+        echo "<script>
+        alert('Email o Contraseña Incorrectos!');
+        window.location.href = 'login.php';
+        </script>";  
     }
 
     $stmt->close();

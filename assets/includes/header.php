@@ -49,22 +49,31 @@ if (session_status() === PHP_SESSION_NONE) {
                       </a>
                     </li>
                     <li class="auth-buttons">
-    <?php if (isset($_SESSION['email'])): ?>
-        <div class="dropdown">
-            <button class="dropdown-toggle">
-                <?php echo htmlspecialchars($_SESSION['email']); ?> ⌄
-            </button>
-            <div class="dropdown-menu">
-                <a href="/tienda-tecnologica/historial_pedidos.php">Historial de Pedidos</a>
-                <a href="/tienda-tecnologica/historial_pedidos.php">Mis datos</a>
+<?php if (isset($_SESSION['nombre'])): ?>
+    <div class="dropdown">
+        <button class="dropdown-toggle">
+            <?php echo htmlspecialchars($_SESSION['nombre']); ?> ⌄
+        </button>
+        <div class="dropdown-menu">
+            <?php if ($_SESSION['rol'] == 'super'): ?>
+                <!-- Menu del Super Administrador -->
+                <a href="/tienda-tecnologica/admin/gestionar_usuarios.php">Gestionar Usuarios</a>
+                <a href="/tienda-tecnologica/admin/gestionar_productos.php">Gestionar Productos</a>
                 <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
-            </div>
+            <?php else: ?>
+                <!-- Menu de Usuario Normal -->
+                <a href="/tienda-tecnologica/historial_pedidos.php">Historial de Pedidos</a>
+                <a href="/tienda-tecnologica/mis_datos.php">Mis Datos</a>
+                <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
+            <?php endif; ?>
         </div>
-    <?php else: ?> 
-        <a href="/tienda-tecnologica/Login/login.php" class="btn login-btn">Login</a>
-        <a href="/tienda-tecnologica/register/registro.php" class="btn register-btn">Registro</a>
-    <?php endif; ?>
+    </div>
+<?php else: ?> 
+    <a href="/tienda-tecnologica/Login/login.php" class="btn login-btn">Login</a>
+    <a href="/tienda-tecnologica/register/registro.php" class="btn register-btn">Registro</a>
+<?php endif; ?>
 </li>
+
 
                   </ul>
                 </nav>
