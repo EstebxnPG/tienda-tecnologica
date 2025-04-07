@@ -36,7 +36,7 @@
     display: none;
     position: absolute;
     right: 0;
-    height: 100px;
+    height: 180px;
     background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);

@@ -56,6 +56,7 @@ if (session_status() === PHP_SESSION_NONE) {
             </button>
             <div class="dropdown-menu">
                 <a href="/tienda-tecnologica/historial_pedidos.php">Historial de Pedidos</a>
+                <a href="/tienda-tecnologica/historial_pedidos.php">Mis datos</a>
                 <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
             </div>
         </div>
