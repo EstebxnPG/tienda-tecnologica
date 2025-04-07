@@ -22,6 +22,7 @@
 .dropdown {
     position: relative;
     display: inline-block;
+    gap: 2rem;
 }
 
 .dropdown-toggle {
@@ -36,7 +37,7 @@
     display: none;
     position: absolute;
     right: 0;
-    height: 180px;
+    height: auto;
     background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
@@ -52,6 +53,8 @@
     text-decoration: none;
     display: block;
     margin-top: 10px;
+    border-top: 1px solid #ccc;
+    gap: 2rem; 
 }
 
 .dropdown-menu a:hover {

@@ -49,7 +49,7 @@ if (session_status() === PHP_SESSION_NONE) {
                       </a>
                     </li>
                     <li class="auth-buttons">
-<?php if (isset($_SESSION['nombre'])): ?>
+      <?php if (isset($_SESSION['nombre'])): ?>
     <div class="dropdown">
         <button class="dropdown-toggle">
             <?php echo htmlspecialchars($_SESSION['nombre']); ?> ⌄
@@ -58,7 +58,9 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php if ($_SESSION['rol'] == 'super'): ?>
                 <!-- Menu del Super Administrador -->
                 <a href="/tienda-tecnologica/admin/gestionar_usuarios.php">Gestionar Usuarios</a>
-                <a href="/tienda-tecnologica/admin/gestionar_productos.php">Gestionar Productos</a>
+                <a href="/tienda-tecnologica/admin/gestionar_productos.php">Gestionar Pedidos</a>
+                <a href="/tienda-tecnologica/admin/gestionar_productos.php">Crear Categorias</a>
+                <a href="/tienda-tecnologica/admin/gestionar_productos.php">Crear Productos</a>
                 <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
             <?php else: ?>
                 <!-- Menu de Usuario Normal -->
