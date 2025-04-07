@@ -33,7 +33,18 @@ if (session_status() === PHP_SESSION_NONE) {
                 <nav class="navigation">
                   <ul>
                     <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="productos.html">Categorias</a></li>
+                    <li class="dropdown">
+    <button class="dropdown-toggle">
+      Categorías ⌄
+    </button>
+    <div class="dropdown-menu">
+      <a href="#">Computadores</a>
+      <a href="#">Celulares</a>
+      <a href="#">Accesorios</a>
+      <a href="#">Otros</a>
+    </div>
+  </li>
+
                     <li><a href="contacto.html">Contacto</a></li>
                     <li class="search-icon">
                       <input type="search" placeholder="Search">
@@ -57,24 +68,24 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="dropdown-menu">
             <?php if ($_SESSION['rol'] == 'super'): ?>
                 <!-- Menu del Super Administrador -->
-                <a href="/tienda-tecnologica/admin/gestionar_usuarios.php">Gestionar Usuarios</a>
-                <a href="/tienda-tecnologica/admin/gestionar_productos.php">Gestionar Pedidos</a>
-                <a href="/tienda-tecnologica/admin/gestionar_productos.php">Crear Categorias</a>
-                <a href="/tienda-tecnologica/admin/gestionar_productos.php">Crear Productos</a>
+                <a href="#">Gestionar Usuarios</a>
+                <a href="#">Gestionar Pedidos</a>
+                <a href="#">Crear Categorias</a>
+                <a href="#">Crear Productos</a>
                 <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
             <?php else: ?>
                 <!-- Menu de Usuario Normal -->
-                <a href="/tienda-tecnologica/historial_pedidos.php">Historial de Pedidos</a>
-                <a href="/tienda-tecnologica/mis_datos.php">Mis Datos</a>
+                <a href="#">Historial de Pedidos</a>
+                <a href="#">Mis Datos</a>
                 <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
             <?php endif; ?>
-        </div>
-    </div>
-<?php else: ?> 
-    <a href="/tienda-tecnologica/Login/login.php" class="btn login-btn">Login</a>
-    <a href="/tienda-tecnologica/register/registro.php" class="btn register-btn">Registro</a>
-<?php endif; ?>
-</li>
+                        </div>
+                    </div>
+                <?php else: ?> 
+                    <a href="/tienda-tecnologica/Login/login.php" class="btn login-btn">Login</a>
+                    <a href="/tienda-tecnologica/register/registro.php" class="btn register-btn">Registro</a>
+                <?php endif; ?>
+                </li>
 
 
                   </ul>
@@ -88,7 +99,7 @@ if (session_status() === PHP_SESSION_NONE) {
     
     <script>
 
-const toggle = document.querySelector('.dropdown-toggle');
+const toggle = document.querySelectorAll('.dropdown-toggle');
 const menu = document.querySelector('.dropdown-menu');
 
 toggle.addEventListener('click', () => {

@@ -53,8 +53,7 @@
     text-decoration: none;
     display: block;
     margin-top: 10px;
-    border-top: 1px solid #ccc;
-    gap: 2rem; 
+    border-top: 1px solid #ccc; 
 }
 
 .dropdown-menu a:hover {
