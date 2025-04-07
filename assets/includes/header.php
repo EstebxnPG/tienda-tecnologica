@@ -1,3 +1,9 @@
+<?php 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+} 
+?> 
+    <link href="../css/style_desplegable_login.css" rel="stylesheet" type="text/css">
 <body>
     <header>
       <div class="menu logo-nav">
@@ -43,9 +49,22 @@
                       </a>
                     </li>
                     <li class="auth-buttons">
-                      <a href="/tienda-tecnologica/Login/login.php" class="btn login-btn">Login</a>
-                      <a href="/tienda-tecnologica/register/registro.php" class="btn register-btn">Registro</a>
-                    </li>
+    <?php if (isset($_SESSION['email'])): ?>
+        <div class="dropdown">
+            <button class="dropdown-toggle">
+                <?php echo htmlspecialchars($_SESSION['email']); ?> ⌄
+            </button>
+            <div class="dropdown-menu">
+                <a href="/tienda-tecnologica/historial_pedidos.php">Historial de Pedidos</a>
+                <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
+            </div>
+        </div>
+    <?php else: ?> 
+        <a href="/tienda-tecnologica/Login/login.php" class="btn login-btn">Login</a>
+        <a href="/tienda-tecnologica/register/registro.php" class="btn register-btn">Registro</a>
+    <?php endif; ?>
+</li>
+
                   </ul>
                 </nav>
               </div>
@@ -54,3 +73,23 @@
         </nav>
       </div>
     </header>
+    
+    <script>
+
+const toggle = document.querySelector('.dropdown-toggle');
+const menu = document.querySelector('.dropdown-menu');
+
+toggle.addEventListener('click', () => {
+menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+});
+
+// Opcional: Cierra el menú si clickea afuera
+window.addEventListener('click', (e) => {
+if (!e.target.matches('.dropdown-toggle')) {
+menu.style.display = 'none';
+}
+});
+</script>
+
+<!-- Estilos por que no los pude linkear  (DPG) -->
+ 

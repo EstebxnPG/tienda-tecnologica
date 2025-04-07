@@ -1,10 +1,3 @@
-<?php
-session_start();
-include 'Login/header.php';
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-?>
 
 <!-- head -->
 <?php include 'assets/includes/head.php'; ?>
