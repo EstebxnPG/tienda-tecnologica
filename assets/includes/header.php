@@ -2,6 +2,14 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 } 
+
+include 'conexion.php';
+$sql = "SELECT * FROM categorias"; // cuidado si se llama 'Categorias' con mayúscula o minúscula
+$resultado = $conn->query($sql);
+
+if(!$resultado){
+    die("Error en la consulta: " . $conn->error);
+}
 ?> 
     <link href="../css/style_desplegable_login.css" rel="stylesheet" type="text/css">
 <body>
@@ -34,16 +42,23 @@ if (session_status() === PHP_SESSION_NONE) {
                   <ul>
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li class="dropdown">
-    <button class="dropdown-toggle">
-      Categorías ⌄
-    </button>
-    <div class="dropdown-menu">
-      <a href="#">Computadores</a>
-      <a href="#">Celulares</a>
-      <a href="#">Accesorios</a>
-      <a href="#">Otros</a>
-    </div>
-  </li>
+          <button class="dropdown-toggle">
+            Categorías ⌄
+          </button>
+          <div class="dropdown-menu">
+            <?php 
+              if($resultado->num_rows > 0){
+                  while($fila = $resultado->fetch_assoc()){ 
+            ?>
+                <a href="#"><?php echo $fila['nombre']; ?></a>
+            <?php 
+                  }
+              } else {
+                  echo "<a>No hay categorías</a>";
+              }
+            ?>
+          </div>
+        </li>
 
                     <li><a href="contacto.html">Contacto</a></li>
                     <li class="search-icon">
@@ -70,7 +85,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <!-- Menu del Super Administrador -->
                 <a href="#">Gestionar Usuarios</a>
                 <a href="#">Gestionar Pedidos</a>
-                <a href="#">Crear Categorias</a>
+                <a href="/tienda-tecnologica/categorias/categorias.php">Crear Categorias</a>
                 <a href="#">Crear Productos</a>
                 <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
             <?php else: ?>
