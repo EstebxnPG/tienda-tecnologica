@@ -651,6 +651,7 @@ input[type="file"].form-control {
     font-size: 30px;
     margin-bottom: 20px;
     font-weight: 600;
+    margin-top: 40px;
 }
 .container-carrito form{
     width: 650px;

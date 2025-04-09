@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Producto - THETECMENS</title>
-    <link href="/tienda-tecnologica/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../tienda-tecnologica/assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <?php
