@@ -1,18 +1,18 @@
 
 <!-- head -->
-<?php include 'assets/includes/head.php'; ?>
+<?php include 'includes/head.php'; ?>
 
 <!-- headaer -->
-<?php include 'assets/includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
 <!-- slider -->
-<?php include 'assets/includes/slider.php'; ?>
+<?php include 'includes/slider.php'; ?>
 
 <!-- main -->
-<?php include 'assets/includes/main.php'; ?>
+<?php include 'includes/main.php'; ?>
 
 <!-- footer -->
-<?php include 'assets/includes/footer.php'; ?>
+<?php include 'includes/footer.php'; ?>
 
 
 <script  src="assets/js/scripts.js"></script>

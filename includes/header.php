@@ -3,7 +3,9 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 } 
 
-include 'conexion.php';
+include __DIR__ . '/../config/conexion.php';
+
+
 
 $sql = "SELECT * FROM categorias"; // cuidado si se llama 'Categorias' con mayúscula o minúscula
 $resultado = $conn->query($sql);
@@ -101,13 +103,13 @@ if(!$resultado){
                                         <!-- Menu de Usuario Normal -->
                                         <a href="#">Historial de Pedidos</a>
                                         <a href="#">Mis Datos</a>
-                                        <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
+                                        <a href="/tienda-tecnologica/components/Login/logout.php">Cerrar Sesión</a>
                                     <?php endif; ?>
                                 </div>
                             </div>
                         <?php else: ?> 
-                            <a href="/tienda-tecnologica/Login/login.php" class="btn login-btn">Login</a>
-                            <a href="/tienda-tecnologica/register/registro.php" class="btn register-btn">Registro</a>
+                            <a href="/tienda-tecnologica/components/Login/login.php" class="btn login-btn">Login</a>
+                            <a href="/tienda-tecnologica/components/register/registro.php" class="btn register-btn">Registro</a>
                         <?php endif; ?>
                     </li>
                 </ul>

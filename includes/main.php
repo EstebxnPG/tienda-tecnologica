@@ -8,11 +8,11 @@
         <h1 class="title-product">Mis Productos</h1>
         <div class="container-productos" id="lista-productos">
         <?php
-          $conexion = new mysqli("localhost", "root", "", "tienda_sena");
-          $conexion->set_charset("utf8");
+
+          include '../tienda-tecnologica/config/conexion.php';
 
           $sql = "SELECT * FROM productos";
-          $resultado = $conexion->query($sql);
+          $resultado = $conn->query($sql);
 
           if ($resultado->num_rows > 0) {
               while ($producto = $resultado->fetch_assoc()) {

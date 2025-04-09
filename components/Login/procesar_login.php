@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             echo "<script>
             alert('¡Inicio Sesión Exitoso!');
-            window.location.href = '../index.php';
+            window.location.href = '../../index.php';
             </script>";   
             exit();
         } else {

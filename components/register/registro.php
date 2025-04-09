@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="../Login/style.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- head -->
- <?php include '../assets/includes/head.php'; ?>
+    <?php include '../../includes/head.php'; ?>
     
 </head>
 <body>
     
     <!-- Nav bar -->
-    <?php include '../assets/includes/header.php'; ?>
+    <?php include '../../includes/header.php'; ?>
 
     <div class="super__container">
         <div class="container">
