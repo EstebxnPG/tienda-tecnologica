@@ -86,34 +86,8 @@
     }
     ?>
 
-    <header>
-    <div class="menu logo-nav">
-        <a href="index.php" class="logo">THETECMENS</a>
-        <label class="menu-icon"><span class="fas fa-bars icomin"></span></label>
-        <nav class="navigation">
-        <ul>
-            <li><a href="nosotros.php">Nosotros</a></li>
-            <li><a href="productos.php">Productos</a></li>
-            <li><a href="crear_producto.php">Crear Producto</a></li>
-            <li><a href="contacto.php">Contacto</a></li>
-            <li class="search-icon">
-            <input type="search" placeholder="Buscar">
-            <label class="icon">
-                <span class="fas fa-search"></span>
-            </label>
-            </li>
-            <li class="car">
-            <a href="carrito.php" title="Ir al carrito de compras">
-                <span class="sr-only">Carrito de compras</span>
-                <svg class="bi bi-cart3" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1h2a.5.5 0 0 1 .49.4L3.89 5H14a.5.5 0 0 1 .49.6l-1.5 7A.5.5 0 0 1 12.5 13h-10a.5.5 0 0 1-.49-.4L.61 3H.5a.5.5 0 0 1 0-1H2a.5.5 0 0 1 .5.5v.5H1.61l1.5 7H12.5l1.5-7H3.89L2.99 1.9A.5.5 0 0 1 2.5 1.5H.5z"/>
-                </svg>
-            </a>
-        </li>          
-        </ul>
-        </nav>
-    </div>
-    </header>
+<?php include '../assets/includes/head.php'; ?>
+<?php include '../assets/includes/header.php'?>
     
     <main>
     <div class="container-carrito">
