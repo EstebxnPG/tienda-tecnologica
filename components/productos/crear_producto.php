@@ -86,8 +86,8 @@
     }
     ?>
 
-<?php include '../includes/head.php'; ?>
-<?php include '../includes/header.php'?>
+<?php include '../../includes/head.php'; ?>
+<?php include '../../includes/header.php'; ?>
     
     <main>
     <div class="container-carrito">
@@ -172,7 +172,7 @@
     </div>
     </main>
     
-    <?php include '../includes/footer.php'; ?>
+    <?php include '../../includes/footer.php'; ?>
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

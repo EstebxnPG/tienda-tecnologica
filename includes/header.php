@@ -97,7 +97,7 @@ if(!$resultado){
                                         <a href="#">Gestionar Usuarios</a>
                                         <a href="#">Gestionar Pedidos</a>
                                         <a href="/tienda-tecnologica/categorias/categorias.php">Gestionar Categorias</a>
-                                        <a href="/tienda-tecnologica/productos/crear_producto.php">Crear Productos</a>
+                                        <a href="/tienda-tecnologica/components/productos/crear_producto.php">Crear Productos</a>
                                         <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
                                     <?php else: ?>
                                         <!-- Menu de Usuario Normal -->

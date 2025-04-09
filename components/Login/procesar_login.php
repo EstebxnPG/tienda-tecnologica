@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         echo "<script>
         alert('¡Bienvenido Super Administrador!');
-        window.location.href = '../index.php';
+        window.location.href = '../../index.php';
         </script>";  
         exit();
     }
