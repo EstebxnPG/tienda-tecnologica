@@ -17,7 +17,7 @@
           if ($resultado->num_rows > 0) {
               while ($producto = $resultado->fetch_assoc()) {
                   echo '<div class="card">';
-                  echo '  <img src="/tienda-tecnologica/productos/uploads/images/' . htmlspecialchars($producto['imagen']) . '" class="card-img">';
+                  echo '  <img src="/tienda-tecnologica/components/productos/uploads/images/' . htmlspecialchars($producto['imagen']) . '" class="card-img">';
                   echo '  <h5>' . htmlspecialchars($producto['nombre']) . '</h5>';
                   echo '  <p>SKU: PROD' . str_pad($producto['id'], 7, "0", STR_PAD_LEFT) . '</p>';
                   echo '  <p>S/.<small class="precio">' . number_format($producto['precio'], 2) . '</small></p>';
