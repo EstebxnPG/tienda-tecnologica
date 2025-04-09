@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THETECMENS</title>
     <link href="/tienda-tecnologica/assets/css/style.css" rel="stylesheet" type="text/css">
-  </head>
+</head>
 
 
-  <style>
-    
-  /* ESTILOS DEL DESPLEGABLE POR QUE NO LOS PUDE LINKEAR */
+<style>
+
+/* ESTILOS DEL DESPLEGABLE POR QUE NO LOS PUDE LINKEAR */
 .login__container {
     /* padding-top: 50px;
     margin-top: 50px; */
@@ -18,13 +18,11 @@
     top: 50px;
     /* margin: 50px auto; */
 }
-
 .dropdown {
     position: relative;
     display: inline-block;
     gap: 2rem;
 }
-
 .dropdown-toggle {
     background-color: transparent ;
     border: none;
@@ -32,7 +30,6 @@
     font-size: 16px;
     color: white;
 }
-
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -46,7 +43,6 @@
     color: black;
     gap: 10rem;
 }
-
 .dropdown-menu a {
     color: black;
     padding: 10px 15px;
@@ -55,8 +51,8 @@
     margin-top: 10px;
     border-top: 1px solid #ccc; 
 }
-
 .dropdown-menu a:hover {
     background-color: gray;
 }
-  </style>
+
+</style>
