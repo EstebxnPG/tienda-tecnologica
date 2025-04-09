@@ -86,7 +86,7 @@ if(!$resultado){
                 <a href="#">Gestionar Usuarios</a>
                 <a href="#">Gestionar Pedidos</a>
                 <a href="/tienda-tecnologica/categorias/categorias.php">Crear Categorias</a>
-                <a href="#">Crear Productos</a>
+                <a href="/tienda-tecnologica/productos/crear_producto.php">Crear Productos</a>
                 <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
             <?php else: ?>
                 <!-- Menu de Usuario Normal -->
@@ -135,4 +135,3 @@ window.addEventListener('click', () => {
 </script>
 
 <!-- Estilos por que no los pude linkear  (DPG) -->
- 

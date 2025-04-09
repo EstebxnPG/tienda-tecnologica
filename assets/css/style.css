@@ -360,6 +360,101 @@ main{
     max-width: 100%;
 }
 
+/* Estilos adicionales para el formulario de creación de productos */
+textarea.form-control {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border-radius: 8px;
+    border: 1px solid #DF691A;
+    resize: vertical;
+    min-height: 100px;
+}
+
+select.form-control {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border-radius: 8px;
+    border: 1px solid #DF691A;
+    background-color: white;
+}
+
+input[type="file"].form-control {
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.help-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.vista-previa {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button-secundario {
+    background: #4E5D6C;
+    text-decoration: none;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    color: #f2f2f2;
+    font-weight: 700;
+    margin-right: 2rem;
+}
+
+.button-secundario:hover {
+    background-color: #364049;
+    cursor: pointer;
+    text-decoration: none;
+    color: #f2f2f2;
+}
+
+.mensaje-exito {
+    background-color: #28A745;
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.mensaje-error {
+    background-color: #DC3545;
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.checkbox-contenedor {
+    margin-bottom: 20px;
+}
+
+.opciones-oferta {
+    margin-top: 8px;
+}
+
+.opciones-oferta label {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.opciones-oferta input[type="radio"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
 
 /*productos-modal*/
 .modal{
