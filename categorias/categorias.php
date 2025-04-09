@@ -25,11 +25,8 @@
                     
                     <button type="submit" class="login-button__form">CREAR CATEGORÍA</button>
                 </form>
-
             </div>
-
         </div>
     </div>
-
 </body>
 </html>

@@ -85,7 +85,7 @@ if(!$resultado){
                 <!-- Menu del Super Administrador -->
                 <a href="#">Gestionar Usuarios</a>
                 <a href="#">Gestionar Pedidos</a>
-                <a href="/tienda-tecnologica/categorias/categorias.php">Crear Categorias</a>
+                <a href="/tienda-tecnologica/categorias/categorias.php">Gestionar Categorias</a>
                 <a href="/tienda-tecnologica/productos/crear_producto.php">Crear Productos</a>
                 <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
             <?php else: ?>
