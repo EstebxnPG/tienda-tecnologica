@@ -237,7 +237,7 @@ header a{
 }
 
 main{
-    padding-top: 6rem;
+    padding-top: 2.6rem;
 }
 
 /*slider*/
@@ -543,6 +543,77 @@ input[type="file"].form-control {
     margin: 0 auto;
 }
 
+/* Sección Nosotros */
+.nosotros {
+    padding: 0.1rem 1rem;
+    background: #f7f7f7;
+}
+
+.nosotros__contenido {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nosotros__texto {
+    flex: 1 1 500px;
+}
+
+.nosotros__titulo {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.nosotros__titulo span {
+    color: #DF691A;
+}
+
+.nosotros__descripcion {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+.nosotros__lista {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.nosotros__lista li {
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.nosotros__lista li strong {
+    margin-right: 0.5rem;
+    color: #28a745;
+}
+
+.nosotros__mision-vision p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.nosotros__imagen {
+    flex: 1 1 400px;
+    text-align: center;
+}
+
+.nosotros__imagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
 /*contenido*/
 .container{
@@ -647,7 +718,7 @@ input[type="file"].form-control {
 /* Footer */
 .footer {
     background: #333;
-    padding: 25px 0;
+    padding: 25.5px 0;
     text-align: center;
 }
 
