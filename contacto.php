@@ -8,8 +8,8 @@
 </head>
 <body>
 
-  <?php include '../tienda-tecnologica/assets/includes/head.php'; ?>
-  <?php include '../tienda-tecnologica/assets/includes/header.php'; ?>
+  <?php include '../tienda-tecnologica/includes/head.php'; ?>
+  <?php include '../tienda-tecnologica/includes/header.php'; ?>
   
   <div class="container-contacto">
   <form action="#" id="form" method="POST">
@@ -23,7 +23,7 @@
   </form>
   </div>
 
-    <?php include '../tienda-tecnologica/assets/includes/footer.php'; ?>
+    <?php include '../tienda-tecnologica/includes/footer.php'; ?>
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>

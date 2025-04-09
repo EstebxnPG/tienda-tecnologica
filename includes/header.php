@@ -96,9 +96,9 @@ if(!$resultado){
                                         <!-- Menu del Super Administrador -->
                                         <a href="#">Gestionar Usuarios</a>
                                         <a href="#">Gestionar Pedidos</a>
-                                        <a href="/tienda-tecnologica/categorias/categorias.php">Gestionar Categorias</a>
+                                        <a href="/tienda-tecnologica/components/categorias/categorias.php">Gestionar Categorias</a>
                                         <a href="/tienda-tecnologica/components/productos/crear_producto.php">Crear Productos</a>
-                                        <a href="/tienda-tecnologica/Login/logout.php">Cerrar Sesión</a>
+                                        <a href="/tienda-tecnologica/components/Login/logout.php">Cerrar Sesión</a>
                                     <?php else: ?>
                                         <!-- Menu de Usuario Normal -->
                                         <a href="#">Historial de Pedidos</a>
