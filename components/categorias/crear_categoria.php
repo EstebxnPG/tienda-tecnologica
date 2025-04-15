@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $sql = "INSERT INTO categorias(nombre) VALUES ('$nombre')";
 
         if(mysqli_query($conn, $sql)){
-            echo "<script>alert('Categoría creada correctamente'); window.location.href='categorias.php';</script>";
+            echo "<script>alert('Categoría creada correctamente'); window.location.href='listar_categoria.php';</script>";
         } else {
             echo "Error: " . mysqli_error($conexion);
         }

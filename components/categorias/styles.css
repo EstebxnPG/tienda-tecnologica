@@ -1,0 +1,99 @@
+html, body {
+    height: 100%;
+    overflow-y: auto;
+    background-color:  #f6f6f6;
+    margin: 0; /* Asegúrate de que no haya márgenes por defecto */
+}
+
+.super__container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* Centra el contenedor horizontalmente */
+    align-items: center; /* Centra el contenedor verticalmente */
+    padding-bottom: 30px;
+    margin-top: 0rem; /* Ajusta este valor según lo que necesites para bajarlo más */
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px; /* Asegúrate de que no sea 100px, lo he cambiado a un tamaño más grande */
+    background-color:#f6f6f6;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2.title__container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead {
+    background-color:  #007BFF;
+    color: #ffffff;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.volver {
+    display: inline-block;
+    margin-top: 20px;
+    color: #333;
+}
+
+.volver:hover {
+    color: #007BFF;
+}
+
+button {
+    color: #007BFF; 
+    padding: 1px 2px; 
+    border: none; 
+    border-radius: 2px; 
+    font-size: 0.9rem; 
+    transition: all 0.3s ease; 
+}
+
+
+button:hover {
+    background-color: #0056b3; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+}
+
+/* Estilo para el enlace "Volver a Crear Categoría" */
+.volver {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007BFF; /* Color azul por defecto */
+    font-size: 1rem; /* Tamaño de fuente */
+    font-weight: bold; /* Hacer el texto en negrita */
+    text-decoration: none; /* Quitar subrayado */
+    transition: color 0.3s ease; /* Efecto suave al cambiar de color */
+}
+
+/* Efecto hover: cambia el color del enlace al pasar el ratón */
+.volver:hover {
+    color: #0056b3; /* Color azul más oscuro en hover */
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
