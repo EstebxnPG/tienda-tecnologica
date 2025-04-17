@@ -9,6 +9,7 @@ function eliminarCategoria(id) {
                 if (response === 'ok') {
                     // Eliminar la fila de la tabla
                     $('#categoria-' + id).remove();
+                    alert("CATEGORIA ELIMINADA CORECTAMENTE")
                 } else {
                     alert('Error al eliminar la categoría');
                 }
@@ -29,6 +30,7 @@ function editarCategoria(id) {
                 if (response === 'ok') {
                     // Actualizar el nombre en la tabla
                     $('#nombre-' + id).text(nuevoNombre);
+                    alert("CATEGORIA EDITADA CORRECTAMENTE")
                 } else {
                     alert('Error al actualizar la categoría');
                 }

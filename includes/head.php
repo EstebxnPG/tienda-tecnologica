@@ -55,4 +55,16 @@
     background-color: gray;
 }
 
+.botones__catgoria{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+.button__confirmation{
+    color: white;
+    background-color: green;
+    padding: 1rem;
+    border-radius: 1rem;
+}
 </style>
