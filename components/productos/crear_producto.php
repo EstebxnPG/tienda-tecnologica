@@ -8,22 +8,7 @@
 </head>
 <body>
     <?php
-    // Iniciar la sesión para mantener mensajes
-    session_start();
-    
-    // Configuración de la conexión a la base de datos
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "tienda_sena";
-
-    // Crear conexión
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    
-    // Verificar conexión
-    if ($conn->connect_error) {
-        die("Conexión fallida: " . $conn->connect_error);
-    }
+    include __DIR__ . '/../../config/conexion.php';
     
     // Consulta para obtener las categorías
     $sql_categorias = "SELECT * FROM categorias";

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../register/conexion.php';
+include __DIR__ . '/../../config/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
