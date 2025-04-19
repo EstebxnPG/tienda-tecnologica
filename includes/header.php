@@ -98,6 +98,7 @@ if(!$resultado){
                                         <a href="/tienda-tecnologica/components/pedidos/pedidos.php">Gestionar Pedidos</a>
                                         <a href="/tienda-tecnologica/components/categorias/listar_categoria.php">Gestionar Categorias</a>
                                         <a href="/tienda-tecnologica/components/productos/crear_producto.php">Crear Productos</a>
+                                        <a href="/tienda-tecnologica/components/editar/editar_producto.php">Editar Productos</a>
                                         <a href="/tienda-tecnologica/components/Login/logout.php">Cerrar Sesión</a>
                                     <?php else: ?>
                                         <!-- Menu de Usuario Normal -->
