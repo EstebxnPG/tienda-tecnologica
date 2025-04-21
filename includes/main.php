@@ -1,3 +1,10 @@
+<?php
+$cantidadCarrito = 0;
+
+if (isset($_SESSION['carrito'])) {
+    $cantidadCarrito = array_sum($_SESSION['carrito']);
+}
+?>
 
 <div class="modal" id="modal">
           <div class="modal-content">
@@ -21,8 +28,7 @@
                   echo '  <h5>' . htmlspecialchars($producto['nombre']) . '</h5>';
                   echo '  <p>SKU: PROD' . str_pad($producto['id'], 7, "0", STR_PAD_LEFT) . '</p>';
                   echo '  <p>S/.<small class="precio">' . number_format($producto['precio'], 2) . '</small></p>';
-                  echo '  <a href="#" class="button agregar-carrito" data-id="' . $producto['id'] . '">Comprar</a>';
-                  echo '  <a href="#" class="button editar-producto" data-id="' . $producto['id'] . '">Editar</a>';
+                  echo '  <a href="/tienda-tecnologica/components/carrito/agregar_carrito.php?id=' . $producto['id'] . '" class="button">Comprar</a>';
                   echo '</div>';
               }
           } else {
@@ -30,3 +36,4 @@
           }
           ?>
         </div>
+      

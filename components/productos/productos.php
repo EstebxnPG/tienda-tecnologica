@@ -12,7 +12,6 @@ if ($resultado->num_rows > 0) {
         echo '  <p>SKU: PROD' . str_pad($producto['id'], 7, "0", STR_PAD_LEFT) . '</p>';
         echo '  <p>S/.<small class="precio">' . number_format($producto['precio'], 2) . '</small></p>';
         echo '  <a href="#" class="button agregar-carrito" data-id="' . $producto['id'] . '">Comprar</a>';
-        echo '  <a href="#" class="button editar-producto" data-id="' . $producto['id'] . '">Editar</a>';
         echo '</div>';
     }
 } else {
