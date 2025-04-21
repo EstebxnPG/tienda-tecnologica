@@ -12,9 +12,11 @@
  include __DIR__ . '/../../config/conexion.php';
  include '../../includes/head.php'; 
  include '../../includes/header.php';
- include '../../includes/footer.php'; 
 ?>
 <form class="form">
+            <div class="title">
+                <label for="titulo" class="title-h1"> Edita tu Producto</label>
+            </div>
             <div class="titleContainer">
                 <label for="nombre">Nombre del Producto:</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre del producto" required>
@@ -34,7 +36,7 @@
             
             <div class="contenido titulo">
                 <label for="precio">Precio:</label>
-                <input type="number" class="form-control" id="precio" name="precio" placeholder="0.00" step="0.01" min="0" required>
+                <input type="text" class="form-control" id="precio" name="precio" placeholder="0.00" required>
             </div>
             
             <div class="contenido titulo">
@@ -71,5 +73,148 @@
         </form>
     </div>
     </main>
+<style>
+
+body {      
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #000;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.form {
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.title-h1{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.titleContainer h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.contenido,
+.titleContainer,
+.checkbox-contenedor,
+.botones-envio {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.form-control {
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #f48221;
+    border-radius: 8px;
+    outline: none;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.checkbox-contenedor .opciones-oferta {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.help-text {
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.vista-previa img {
+    display: block;
+    max-width: 200px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+.botones-envio {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #f48221;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #d56f1b;
+}
+
+.button-secundario {
+    background-color: #ccc;
+    color: #000;
+}
+
+.button-secundario:hover {
+    background-color: #bbb;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 20px 10px;
+    }
+
+    .form {
+        max-width: 100%;
+    }
+
+    .botones-envio {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button,
+    .button-secundario {
+        width: 100%;
+    }
+}
+</style>
 </body>
 </html>
