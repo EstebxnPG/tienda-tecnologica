@@ -10,18 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Datos simulados o ajustados
     $usuario_id = 1; // Aquí deberías usar el ID real del usuario desde la sesión
-    $provincia = "Por definir"; // Puedes agregar un campo si lo necesitas
-    $localidad = "Por definir"; // Igual que provincia
+    $provincia = "Por definir";
+    $localidad = "Por definir";
 
     $estado = "confirmado";
     $fecha = date("Y-m-d");
     $hora = date("H:i:s");
 
-    // Calcular el total desde el carrito (simulado desde POST, puedes ajustar)
+
     $total = 0;
     if (isset($_POST['cantidad']) && is_array($_POST['cantidad'])) {
         foreach ($_POST['cantidad'] as $id => $cantidad) {
-            $precio = $_POST['precio'][$id]; // necesitas enviar los precios también en el form
+            $precio = $_POST['precio'][$id]; 
             $total += $precio * $cantidad;
         }
     }

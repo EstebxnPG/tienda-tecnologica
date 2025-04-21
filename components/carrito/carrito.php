@@ -48,22 +48,20 @@ include __DIR__ . '/../../config/conexion.php';
 include '../../includes/head.php'; 
 include '../../includes/header.php'; 
 
-// Asegúrate de que el carrito esté en la sesión
+
 if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
 }
 
-// Variables para el subtotal, IGV y total
 $subtotal = 0;
 $igv = 0;
 $total = 0;
 
-// Consulta para obtener los productos del carrito
 $productos = [];
 foreach ($_SESSION['carrito'] as $producto_id => $cantidad) {
     $consulta = "SELECT * FROM productos WHERE id= ?";
-    $stmt = $conn->prepare($consulta); // Usamos $conn en lugar de $pdo
-    $stmt->bind_param("i", $producto_id); // Vinculamos el parámetro de tipo entero
+    $stmt = $conn->prepare($consulta); 
+    $stmt->bind_param("i", $producto_id); 
     $stmt->execute();
     $resultado = $stmt->get_result();
     $producto = $resultado->fetch_assoc();
@@ -72,17 +70,17 @@ foreach ($_SESSION['carrito'] as $producto_id => $cantidad) {
         $producto['cantidad'] = $cantidad;
         $productos[] = $producto;
         
-        // Calcular subtotal
-        $subtotal += $producto['precio'] * $cantidad;
+        $precio = floatval($producto['precio']);  // Convierte a número flotante
+        $cantidad = intval($cantidad);  // Convierte a número entero
+
+        $subtotal += $precio * $cantidad;
+
     }
 }
 
-// Calcular IGV y total
-$igv = $subtotal * 0.18; // Asumiendo que el IGV es 18%
+$igv = $subtotal * 0.18; 
 $total = $subtotal + $igv;
 ?>
-
-<!-- Aquí va el resto de tu código HTML... -->
 
 
 <main>
@@ -133,7 +131,7 @@ $total = $subtotal + $igv;
                       <td><?= $producto['nombre'] ?></td>
                       <td>
                           <?= number_format($producto['precio'], 2) ?> USD
-                          <!-- Agregamos el input hidden para el precio -->
+                        
                           <input type="hidden" name="precio[<?= $producto['id'] ?>]" value="<?= $producto['precio'] ?>">
                       </td>
                       <td>

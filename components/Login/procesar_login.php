@@ -2,11 +2,6 @@
 session_start();
 include __DIR__ . '/../../config/conexion.php';
 
-if (isset($_COOKIE['carrito'])) {
-    $_SESSION['carrito'] = json_decode($_COOKIE['carrito'], true);
-}
-
-
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
