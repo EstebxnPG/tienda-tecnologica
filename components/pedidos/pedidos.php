@@ -51,6 +51,8 @@ $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../pedidos/css/pedidos.css"> <!-- cambia la ruta si es necesario -->
 </head>
 <body>
+<?php include '../../includes/header.php'; ?>
+<?php include '../../includes/head.php'; ?>
 <div class="container">
     <h1>Gestión de Pedidos</h1>
 

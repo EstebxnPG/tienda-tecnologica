@@ -74,7 +74,9 @@ if (isset($_SESSION['carrito'])) {
                             if($resultado->num_rows > 0){
                                 while($fila = $resultado->fetch_assoc()){ 
                             ?>
-                                <a href="#"><?php echo $fila['nombre']; ?></a>
+                                <a href="/tienda-tecnologica/components/categorias/productos_por_categoria.php?id=<?php echo $fila['id']; ?>">
+                                    <?php echo $fila['nombre']; ?>
+                                </a>
                             <?php 
                                 }
                             } else {
