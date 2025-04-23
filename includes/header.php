@@ -121,7 +121,7 @@ if (isset($_SESSION['carrito'])) {
                                     <?php if ($_SESSION['rol'] == 'super'): ?>
                                         <!-- Menu del Super Administrador -->
                                         <a href="#">Gestionar Usuarios</a>
-                                        <a href="/tienda-tecnologica/components/pedidos/pedidos.php">Gestionar Pedidos</a>
+                                        <a href="/tienda-tecnologica/components/gestionar_pedido/listar_pedido.php">Gestionar Pedidos</a>
                                         <a href="/tienda-tecnologica/components/categorias/listar_categoria.php">Gestionar Categorias</a>
                                         <a href="/tienda-tecnologica/components/productos/crear_producto.php">Crear Productos</a>
                                         <a href="/tienda-tecnologica/components/editar/editar_producto.php">Editar Productos</a>
