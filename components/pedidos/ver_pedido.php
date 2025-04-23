@@ -1,10 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<?php include '../../includes/header.php'; ?>
+<?php include '../../includes/head.php'; ?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Pedidos</title>
+    <title>Detalles del Pedido</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -18,52 +20,79 @@
             line-height: 1.6;
             background-color: #f8f9fa;
             color: #333;
+            padding: 20px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 2rem;
         }
 
-        h1 {
+        h1, h2, h3 {
             color: #2c3e50;
             margin-bottom: 1.5rem;
-            font-size: 2rem;
             font-weight: 700;
         }
 
-        .actions-bar {
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .btn-nuevo {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: #007832;
-            color: white;
-            text-decoration: none;
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+        }
+
+        .pedido-info {
+            background: #f8f9fa;
             border-radius: 6px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            margin-top: 4rem;
+            border-left: 4px solid #007832;
+            margin-left: -20rem;
         }
 
-        .btn-nuevo:hover {
-            background-color: #005d27;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .pedido-info p {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
         }
+
+        .pedido-info strong {
+            color: #2c3e50;
+            min-width: 120px;
+            display: inline-block;
+        }
+
+        .estado {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            display: inline-block;
+        }
+
+        .estado-pendiente { background-color: #fff3cd; color: #856404; }
+        .estado-procesando { background-color: #cce5ff; color: #004085; }
+        .estado-enviado { background-color: #d4edda; color: #155724; }
+        .estado-entregado { background-color: #c3e6cb; color: #1e7e34; }
+        .estado-cancelado { background-color: #f8d7da; color: #721c24; }
 
         .table-container {
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             overflow: hidden;
+            margin-bottom: 2rem;
         }
 
         table {
@@ -88,58 +117,42 @@
         }
 
         tr:hover {
-            background-color: #f8f9fa;
-        }
-
-        .estado {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: capitalize;
-        }
-
-        .estado-pendiente { background-color: #fff3cd; color: #856404; }
-        .estado-procesando { background-color: #cce5ff; color: #004085; }
-        .estado-enviado { background-color: #d4edda; color: #155724; }
-        .estado-entregado { background-color: #c3e6cb; color: #1e7e34; }
-        .estado-cancelado { background-color: #f8d7da; color: #721c24; }
-
-        .acciones {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .btn-accion {
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-        }
-
-        .btn-editar {
-            background-color: #007bff;
-            color: white;
-        }
-
-        .btn-editar:hover {
-            background-color: #0056b3;
-        }
-
-        .btn-eliminar {
-            background-color: #dc3545;
-            color: white;
-        }
-
-        .btn-eliminar:hover {
-            background-color: #c82333;
+            background-color: #f9f9f9;
         }
 
         .precio {
             font-family: 'Roboto Mono', monospace;
             font-weight: 500;
+        }
+
+        .total-row {
+            font-weight: 700;
+            background-color: #f6f8fa;
+        }
+
+        .total-row td {
+            border-top: 2px solid #ddd;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-left: 10rem;
+            margin-top: 13rem;
+        }
+
+        .btn-volver:hover {
+            background-color: #5a6268;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         @media (max-width: 768px) {
@@ -156,70 +169,96 @@
             th, td {
                 padding: 0.75rem;
             }
+
+            .pedido-info {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
-<?php
-// Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "tienda_sena");
-if ($conexion->connect_error) {
-    die("Conexión fallida: " . $conexion->connect_error);
-}
+<body>
+    <div class="container">
+        <?php
+        // Conexión a la base de datos
+        $conexion = new mysqli("localhost", "root", "", "tienda_sena");
+        if ($conexion->connect_error) {
+            die("Conexión fallida: " . $conexion->connect_error);
+        }
 
-// Obtener ID del pedido desde la URL
-$pedido_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+        // Obtener ID del pedido desde la URL
+        $pedido_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-if ($pedido_id <= 0) {
-    echo "ID de pedido inválido.";
-    exit;
-}
+        if ($pedido_id <= 0) {
+            echo "<p class='error'>ID de pedido inválido.</p>";
+            exit;
+        }
 
-// Consulta para obtener datos del pedido
-$sql_pedido = "SELECT p.*, u.nombre, u.apellidos 
-               FROM pedidos p 
-               INNER JOIN usuarios u ON p.usuario_id = u.id 
-               WHERE p.id = $pedido_id";
-$resultado_pedido = $conexion->query($sql_pedido);
+        // Consulta para obtener datos del pedido
+        $sql_pedido = "SELECT p.*, u.nombre, u.apellidos 
+                       FROM pedidos p 
+                       INNER JOIN usuarios u ON p.usuario_id = u.id 
+                       WHERE p.id = $pedido_id";
+        $resultado_pedido = $conexion->query($sql_pedido);
 
-if ($resultado_pedido->num_rows > 0) {
-    $pedido = $resultado_pedido->fetch_assoc();
-    echo "<h2>Detalles del Pedido #{$pedido['id']}</h2>";
-    echo "<p><strong>Cliente:</strong> {$pedido['nombre']} {$pedido['apellidos']}</p>";
-    echo "<p><strong>Dirección:</strong> {$pedido['direccion']}, {$pedido['localidad']}, {$pedido['provincia']}</p>";
-    echo "<p><strong>Estado:</strong> {$pedido['estado']}</p>";
-    echo "<p><strong>Fecha:</strong> {$pedido['fecha']} - <strong>Hora:</strong> {$pedido['hora']}</p>";
-    echo "<p><strong>Costo Total:</strong> $ {$pedido['coste']}</p>";
-} else {
-    echo "Pedido no encontrado.";
-    exit;
-}
+        if ($resultado_pedido->num_rows > 0) {
+            $pedido = $resultado_pedido->fetch_assoc();
+            $estado_class = 'estado-' . strtolower($pedido['estado']);
+            
+            echo "<h2>Detalles del Pedido #{$pedido['id']}</h2>";
+            echo "<div class='pedido-info'>";
+            echo "<p><strong>Cliente:</strong> {$pedido['nombre']} {$pedido['apellidos']}</p>";
+            echo "<p><strong>Dirección:</strong> {$pedido['direccion']}, {$pedido['localidad']}, {$pedido['provincia']}</p>";
+            echo "<p><strong>Estado:</strong> <span class='estado {$estado_class}'>{$pedido['estado']}</span></p>";
+            echo "<p><strong>Fecha:</strong> {$pedido['fecha']} - <strong>Hora:</strong> {$pedido['hora']}</p>";
+            echo "<p><strong>Costo Total:</strong> <span class='precio'>$ {$pedido['coste']}</span></p>";
+            echo "</div>";
+        } else {
+            echo "<p class='error'>Pedido no encontrado.</p>";
+            exit;
+        }
 
-// Consulta para obtener los productos del pedido
-$sql_productos = "SELECT lp.unidades, pr.nombre, pr.precio
-                  FROM lineas_pedidos lp
-                  INNER JOIN productos pr ON lp.producto_id = pr.id
-                  WHERE lp.pedido_id = $pedido_id";
-$resultado_productos = $conexion->query($sql_productos);
+        // Consulta para obtener los productos del pedido
+        $sql_productos = "SELECT lp.unidades, pr.nombre, pr.precio
+                          FROM lineas_pedidos lp
+                          INNER JOIN productos pr ON lp.producto_id = pr.id
+                          WHERE lp.pedido_id = $pedido_id";
+        $resultado_productos = $conexion->query($sql_productos);
 
-echo "<h3>Productos en el Pedido:</h3>";
-echo "<table border='1' cellpadding='8'>
-        <tr>
-            <th>Producto</th>
-            <th>Precio Unitario</th>
-            <th>Unidades</th>
-            <th>Total</th>
-        </tr>";
+        echo "<h3>Productos en el Pedido</h3>";
+        echo "<div class='table-container'>";
+        echo "<table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio Unitario</th>
+                        <th>Unidades</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>";
 
-while ($producto = $resultado_productos->fetch_assoc()) {
-    $total_producto = $producto['precio'] * $producto['unidades'];
-    echo "<tr>
-            <td>{$producto['nombre']}</td>
-            <td>$ {$producto['precio']}</td>
-            <td>{$producto['unidades']}</td>
-            <td>$ {$total_producto}</td>
-          </tr>";
-}
-echo "</table>";
+        $total_pedido = 0;
+        while ($producto = $resultado_productos->fetch_assoc()) {
+            $total_producto = $producto['precio'] * $producto['unidades'];
+            $total_pedido += $total_producto;
+            echo "<tr>
+                    <td>{$producto['nombre']}</td>
+                    <td class='precio'>$ {$producto['precio']}</td>
+                    <td>{$producto['unidades']}</td>
+                    <td class='precio'>$ {$total_producto}</td>
+                  </tr>";
+        }
+        
+        echo "<tr class='total-row'>
+                <td colspan='3'><strong>Total del Pedido</strong></td>
+                <td class='precio'><strong>$ {$total_pedido}</strong></td>
+              </tr>";
+        echo "</tbody></table></div>";
+        echo '<a href="mis_pedidos.php" class="btn-volver">VOLVER</a>';
+        $conexion->close();
+        ?>
+    </div>
+    <?php include '../../includes/footer.php'; ?>
 
-$conexion->close();
-?>
+</body>
+</html>

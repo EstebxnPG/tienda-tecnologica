@@ -150,7 +150,7 @@
             </div>
 
             <div class="botones-envio">
-                <a href="productos.php" class="button button-secundario">Cancelar</a>
+                <a href="../../index.php" class="button button-secundario">Cancelar</a>
                 <input type="submit" class="button" id="guardar-producto" value="Guardar Producto">
             </div>
         </form>

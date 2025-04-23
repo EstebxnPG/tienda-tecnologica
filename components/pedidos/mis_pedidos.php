@@ -9,6 +9,8 @@ $resultado = $conn->query("SELECT * FROM pedidos WHERE usuario_id = $usuario_id 
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Pedidos</title>
@@ -107,6 +109,19 @@ $resultado = $conn->query("SELECT * FROM pedidos WHERE usuario_id = $usuario_id 
             font-weight: 500;
             text-transform: capitalize;
         }
+        .btn-volver {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.btn-volver:hover {
+    background-color: #e0e0e0;
+}
 
         .estado-pendiente { background-color: #fff3cd; color: #856404; }
         .estado-procesando { background-color: #cce5ff; color: #004085; }
@@ -172,7 +187,7 @@ $resultado = $conn->query("SELECT * FROM pedidos WHERE usuario_id = $usuario_id 
     <div class="container">
         <div class="actions-bar">
             <h1>Mis Pedidos</h1>
-            <a href="../../index.php">VOLVER</a>
+            <a class="btn-volver" href="../../index.php">VOLVER</a>
         </div>
         
         <div class="table-container">

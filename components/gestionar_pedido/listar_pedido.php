@@ -7,6 +7,7 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Pedidos</title>
@@ -36,7 +37,18 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
             margin-bottom: 1.5rem;
             font-size: 2rem;
             font-weight: 700;
+            margin-top: 3rem;
         }
+
+        .button{
+    background:#DF691A;
+    text-decoration: none;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    color:  #f2f2f2;
+    font-weight: 700;
+}
 
         .actions-bar {
             margin-bottom: 2rem;
@@ -169,7 +181,7 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
     <div class="container">
         <div class="actions-bar">
             <h1>Gestión de Pedidos</h1>
-            <a href="../../index.php">VOLVER</a>
+            <a class="button" href="../../index.php">VOLVER</a>
             <a href="crear_pedido.php" class="btn-nuevo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 4px;" viewBox="0 0 16 16">
                     <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>

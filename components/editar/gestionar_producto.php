@@ -55,7 +55,7 @@ include '../../config/conexion.php';
         <br>
         <div class="botones__producto">
             <a href="../productos/crear_producto.php" class="button__confirmation">CREAR UN PRODUCTO</a>
-            <a href="/tienda-tecnologica/index.php" class="volver">← Volver</a>
+            <a href="/tienda-tecnologica/index.php" class="volver button__confirmation">← Volver</a>
         </div>
     </div>
 </div>
@@ -74,6 +74,8 @@ function eliminarProducto(id) {
     }
 }
 </script>
+
+<?php include '../../includes/footer.php'; ?>
 
 </body>
 </html>
