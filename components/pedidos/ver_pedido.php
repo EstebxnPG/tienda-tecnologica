@@ -210,7 +210,7 @@
             echo "<p><strong>Dirección:</strong> {$pedido['direccion']}, {$pedido['localidad']}, {$pedido['provincia']}</p>";
             echo "<p><strong>Estado:</strong> <span class='estado {$estado_class}'>{$pedido['estado']}</span></p>";
             echo "<p><strong>Fecha:</strong> {$pedido['fecha']} - <strong>Hora:</strong> {$pedido['hora']}</p>";
-            echo "<p><strong>Costo Total:</strong> <span class='precio'>$ {$pedido['coste']}</span></p>";
+            echo "<p><strong>Costo Total:</strong> <span class='precio'>(USD) {$pedido['coste']}</span></p>";
             echo "</div>";
         } else {
             echo "<p class='error'>Pedido no encontrado.</p>";
@@ -243,15 +243,15 @@
             $total_pedido += $total_producto;
             echo "<tr>
                     <td>{$producto['nombre']}</td>
-                    <td class='precio'>$ {$producto['precio']}</td>
+                    <td class='precio'>(USD) {$producto['precio']}</td>
                     <td>{$producto['unidades']}</td>
-                    <td class='precio'>$ {$total_producto}</td>
+                    <td class='precio'>(USD) {$total_producto}</td>
                   </tr>";
         }
         
         echo "<tr class='total-row'>
                 <td colspan='3'><strong>Total del Pedido</strong></td>
-                <td class='precio'><strong>$ {$total_pedido}</strong></td>
+                <td class='precio'><strong>(USD) {$total_pedido}</strong></td>
               </tr>";
         echo "</tbody></table></div>";
         echo '<a href="mis_pedidos.php" class="btn-volver">VOLVER</a>';

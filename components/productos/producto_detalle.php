@@ -60,7 +60,7 @@ if (isset($_SESSION['carrito'])) {
                 
                 <div style="margin-bottom: 2rem;">
                     <p style="font-size: 2rem; color: #DF691A; font-weight: bold;">
-                        USD <?php echo number_format($producto['precio'], 2); ?>
+                    (USD) <?php echo number_format($producto['precio'], 2); ?>
                     </p>
                 </div>
                 

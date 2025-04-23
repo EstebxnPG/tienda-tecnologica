@@ -198,7 +198,7 @@ $resultado = $conn->query("SELECT * FROM pedidos WHERE usuario_id = $usuario_id 
                         <th>Provincia</th>
                         <th>Localidad</th>
                         <th>Dirección</th>
-                        <th>Coste</th>
+                        <th>Costo</th>
                         <th>Estado</th>
                         <th>Fecha</th>
                         <th>Hora</th>
@@ -212,7 +212,7 @@ $resultado = $conn->query("SELECT * FROM pedidos WHERE usuario_id = $usuario_id 
                         <td><?php echo htmlspecialchars($pedido['provincia']); ?></td>
                         <td><?php echo htmlspecialchars($pedido['localidad']); ?></td>
                         <td><?php echo htmlspecialchars($pedido['direccion']); ?></td>
-                        <td class="precio">$<?php echo number_format($pedido['coste'], 2); ?></td>
+                        <td class="precio">(USD)<?php echo number_format($pedido['coste'], 2); ?></td>
                         <td>
                             <span class="estado estado-<?php echo strtolower($pedido['estado']); ?>">
                                 <?php echo ucfirst($pedido['estado']); ?>

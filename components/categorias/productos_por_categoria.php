@@ -54,7 +54,7 @@ include '../../includes/head.php'; ?>
                 <img src="/tienda-tecnologica/components/productos/uploads/images/<?php echo htmlspecialchars($producto['imagen']); ?>" class="card-img">
                 <h5><?php echo htmlspecialchars($producto['nombre']); ?></h5>
                 <p>SKU: PROD<?php echo str_pad($producto['id'], 7, "0", STR_PAD_LEFT); ?></p>
-                <p>S/.<small class="precio"><?php echo number_format($producto['precio'], 2); ?></small></p>
+                <p>(USD)<small class="precio"><?php echo number_format($producto['precio'], 2); ?></small></p>
                 <a href="/tienda-tecnologica/components/productos/producto_detalle.php?id=<?php echo $producto['id']; ?>" class="button-detalles">Ver Detalles</a>
                 <a href="/tienda-tecnologica/components/carrito/agregar_carrito.php?id=<?php echo $producto['id']; ?>" class="button">Comprar</a>
             </div>

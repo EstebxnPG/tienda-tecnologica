@@ -120,7 +120,7 @@
             </div>
             
             <div class="contenido titulo">
-                <label for="precio">Precio (€):</label>
+                <label for="precio">Precio (USD):</label>
                 <input type="number" class="form-control" id="precio" name="precio" placeholder="0.00" step="0.01" min="0" required>
             </div>
             
