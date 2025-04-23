@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email'])) {
-    echo "<script>alert('Debes iniciar sesión para agregar productos al carrito.'); window.location.href = 'index.php';</script>";
+    echo "<script>alert('Debes iniciar sesión para agregar productos al carrito.'); window.location.href = '/tienda-tecnologica/components/Login/login.php';</script>";
     exit;
 }
 
