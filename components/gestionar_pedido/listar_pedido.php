@@ -184,12 +184,7 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
         <div class="actions-bar">
             <h1>Gestión de Pedidos</h1>
             <a class="button" href="../../index.php">VOLVER</a>
-            <a href="crear_pedido.php" class="btn-nuevo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 4px;" viewBox="0 0 16 16">
-                    <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
-                </svg>
-                Nuevo Pedido
-            </a>
+            
         </div>
         
         <div class="table-container">
