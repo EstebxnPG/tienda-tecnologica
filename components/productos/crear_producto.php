@@ -9,6 +9,8 @@
 <body>
     <?php
     include __DIR__ . '/../../config/conexion.php';
+    include '../../includes/validador.php';
+
     
     // Consulta para obtener las categorías
     $sql_categorias = "SELECT * FROM categorias";
@@ -150,7 +152,7 @@
             </div>
 
             <div class="botones-envio">
-                <a href="productos.php" class="button button-secundario">Cancelar</a>
+                <a href="../../index.php" class="button button-secundario">Cancelar</a>
                 <input type="submit" class="button" id="guardar-producto" value="Guardar Producto">
             </div>
         </form>

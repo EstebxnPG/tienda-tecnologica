@@ -1,5 +1,7 @@
 <?php 
 include '../../config/conexion.php';
+include '../../includes/validador.php';
+
 
 // Obtener el ID del producto a editar
 if (!isset($_GET['id'])) {
@@ -80,9 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
 
         <br>
-        <a href="productos.php" class="volver">← Volver</a>
+        <a href="gestionar_producto .php" class="volver button__confirmation">← Volver</a>
     </div>
 </div>
+<?php include '../../includes/footer.php'; ?>
 
 </body>
 </html>

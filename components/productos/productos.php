@@ -1,8 +1,10 @@
 <?php
-$conexion->set_charset("utf8");
+include __DIR__ . '/../../config/conexion.php';
+
+$conn->set_charset("utf8");
 
 $sql = "SELECT * FROM productos";
-$resultado = $conexion->query($sql);
+$resultado = $conn->query($sql);
 
 if ($resultado->num_rows > 0) {
     while ($producto = $resultado->fetch_assoc()) {

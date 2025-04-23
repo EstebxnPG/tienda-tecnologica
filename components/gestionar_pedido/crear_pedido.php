@@ -3,7 +3,10 @@
 session_start();
 // $usuario_id = $_SESSION['id']; // Solo si ya usas login
 $usuario_id = 1; // Valor de prueba (cámbialo por el ID de sesión si ya tienes login)
+include '../../includes/validador.php';
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">

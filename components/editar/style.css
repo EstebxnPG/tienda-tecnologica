@@ -47,7 +47,7 @@ th, td {
 }
 
 th {
-    background-color: #007bff;
+    background-color: #DF691A;
     color: white;
 }
 
@@ -110,6 +110,7 @@ button:active {
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    margin-left: 20rem;
 }
 
 .button__confirmation:hover {
