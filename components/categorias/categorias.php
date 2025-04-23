@@ -1,3 +1,4 @@
+<?php include '../../includes/validador.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
 <body>
 
 <?php include '../../includes/header.php'; 
-include '../../includes/validador.php';?>
+?>
 
 
     <div class="super__container">
