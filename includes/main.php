@@ -12,7 +12,7 @@ if (isset($_SESSION['carrito'])) {
           </div>
           <div class="modal-boton" id="modal-boton">X</div>
         </div>
-        <h1 class="title-product">Mis Productos</h1>
+        <h1 class="title-product">Productos</h1>
         <div class="container-productos" id="lista-productos">
         <?php
 

@@ -120,15 +120,14 @@ if (isset($_SESSION['carrito'])) {
                                 <div class="dropdown-menu">
                                     <?php if ($_SESSION['rol'] == 'super'): ?>
                                         <!-- Menu del Super Administrador -->
-                                        <a href="#">Gestionar Usuarios</a>
                                         <a href="/tienda-tecnologica/components/gestionar_pedido/listar_pedido.php">Gestionar Pedidos</a>
                                         <a href="/tienda-tecnologica/components/categorias/listar_categoria.php">Gestionar Categorias</a>
                                         <a href="/tienda-tecnologica/components/productos/crear_producto.php">Crear Productos</a>
-                                        <a href="/tienda-tecnologica/components/editar/editar_producto.php">Editar Productos</a>
+                                        <a href="/tienda-tecnologica/components/editar/gestionar_producto.php">Gestionar Productos</a>
                                         <a href="/tienda-tecnologica/components/Login/logout.php">Cerrar Sesión</a>
                                     <?php else: ?>
                                         <!-- Menu de Usuario Normal -->
-                                        <a href="#">Historial de Pedidos</a>
+                                        <a href="/tienda-tecnologica/components/pedidos/mis_pedidos.php">Historial de Pedidos</a>
                                         <a href="#">Mis Datos</a>
                                         <a href="/tienda-tecnologica/components/Login/logout.php">Cerrar Sesión</a>
                                     <?php endif; ?>

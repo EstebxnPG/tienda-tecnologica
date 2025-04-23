@@ -1,7 +1,9 @@
 <?php
+session_start();
 include '../../config/conexion.php';
 
-$resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
+$usuario_id = $_SESSION['usuario_id'];
+$resultado = $conn->query("SELECT * FROM pedidos WHERE usuario_id = $usuario_id ORDER BY fecha DESC");
 ?>
 
 <!DOCTYPE html>
@@ -9,9 +11,11 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Pedidos</title>
+    <title>Mis Pedidos</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* Mismos estilos CSS que compartiste */
+        /* (puedes copiar el bloque de estilos CSS completo tal cual, sin cambios) */
         * {
             margin: 0;
             padding: 0;
@@ -164,18 +168,11 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="actions-bar">
-            <h1>Gestión de Pedidos</h1>
+            <h1>Mis Pedidos</h1>
             <a href="../../index.php">VOLVER</a>
-            <a href="crear_pedido.php" class="btn-nuevo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 4px;" viewBox="0 0 16 16">
-                    <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
-                </svg>
-                Nuevo Pedido
-            </a>
         </div>
         
         <div class="table-container">
@@ -183,7 +180,6 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Usuario ID</th>
                         <th>Provincia</th>
                         <th>Localidad</th>
                         <th>Dirección</th>
@@ -198,7 +194,6 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
                     <?php while($pedido = $resultado->fetch_assoc()): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($pedido['id']); ?></td>
-                        <td><?php echo htmlspecialchars($pedido['usuario_id']); ?></td>
                         <td><?php echo htmlspecialchars($pedido['provincia']); ?></td>
                         <td><?php echo htmlspecialchars($pedido['localidad']); ?></td>
                         <td><?php echo htmlspecialchars($pedido['direccion']); ?></td>
@@ -211,10 +206,7 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
                         <td><?php echo htmlspecialchars($pedido['fecha']); ?></td>
                         <td><?php echo htmlspecialchars($pedido['hora']); ?></td>
                         <td class="acciones">
-                            <a href="editar_pedido.php?id=<?php echo $pedido['id']; ?>" class="btn-accion btn-editar">Editar</a>
-                            <a href="eliminar_pedido.php?id=<?php echo $pedido['id']; ?>" 
-                               onclick="return confirm('¿Está seguro de que desea eliminar este pedido?')" 
-                               class="btn-accion btn-eliminar">Eliminar</a>
+                            <a href="ver_pedido.php?id=<?php echo $pedido['id']; ?>" class="btn-accion btn-editar">Ver</a>
                         </td>
                     </tr>
                     <?php endwhile; ?>

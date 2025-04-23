@@ -96,6 +96,15 @@ $total = $subtotal + $igv;
         <input type="number" class="form-control" id="numero" name="numero" placeholder="Ingrese su número" required>
     </div>
     <div class="contenido titulo">
+    <label for="provincia" class="">Provincia :</label>
+    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Ingrese su provincia" required>
+</div>
+<div class="contenido titulo">
+    <label for="localidad" class="">Localidad :</label>
+    <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Ingrese su localidad" required>
+</div>
+
+    <div class="contenido titulo">
         <label for="direccion" class="">Dirección :</label>
         <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" required>
     </div>

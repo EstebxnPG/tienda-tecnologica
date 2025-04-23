@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . '/../../config/conexion.php'; 
+session_start(); 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cliente = $_POST['cliente'];
@@ -7,16 +8,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $direccion = $_POST['direccion'];
     $correo = $_POST['correo'];
     $metodo_pago = $_POST['metodo_pago'];
-
-    // Datos simulados o ajustados
-    $usuario_id = 1; // Aquí deberías usar el ID real del usuario desde la sesión
-    $provincia = "Por definir";
-    $localidad = "Por definir";
+    $usuario_id = $_SESSION['usuario_id'];
+    $provincia = $_POST['provincia'];
+    $localidad = $_POST['localidad'];
 
     $estado = "confirmado";
     $fecha = date("Y-m-d");
     $hora = date("H:i:s");
-
 
     $total = 0;
     if (isset($_POST['cantidad']) && is_array($_POST['cantidad'])) {
@@ -26,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Insertar pedido
+    // Insertar pedido principal
     $sql = "INSERT INTO pedidos (usuario_id, provincia, localidad, direccion, coste, estado, fecha, hora) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     
@@ -34,22 +32,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("isssdsss", $usuario_id, $provincia, $localidad, $direccion, $total, $estado, $fecha, $hora);
 
     if ($stmt->execute()) {
-// Limpiar carrito en sesión
-if (isset($_SESSION['carrito'])) {
-    unset($_SESSION['carrito']);
-}
+        $pedido_id = $conn->insert_id; // Obtener el ID del pedido
 
-// Limpiar cookie del carrito
-if (isset($_COOKIE['carrito'])) {
-    setcookie('carrito', '', time() - 3600, '/');
-}
+        // Insertar productos en lineas_pedidos
+        if (isset($_POST['cantidad']) && is_array($_POST['cantidad'])) {
+            foreach ($_POST['cantidad'] as $producto_id => $unidades) {
+                if ($unidades > 0) {
+                    $sql_linea = "INSERT INTO lineas_pedidos (pedido_id, producto_id, unidades) 
+                                  VALUES (?, ?, ?)";
+                    $stmt_linea = $conn->prepare($sql_linea);
+                    $stmt_linea->bind_param("iii", $pedido_id, $producto_id, $unidades);
+                    $stmt_linea->execute();
+                }
+            }
+        }
 
+        // Limpiar carrito en sesión
+        if (isset($_SESSION['carrito'])) {
+            unset($_SESSION['carrito']);
+        }
+
+        // Limpiar cookie del carrito
+        if (isset($_COOKIE['carrito'])) {
+            setcookie('carrito', '', time() - 3600, '/');
+        }
 
         echo "<script>
-        alert('¡Pedido generado corectamente! GRACIAS POR TU COMPRA');
+        alert('¡Pedido generado correctamente! GRACIAS POR TU COMPRA');
         window.location.href = '/tienda-tecnologica/index.php';
         </script>";
-        // Redirigir o mostrar algo aquí
     } else {
         echo "Error al registrar el pedido: " . $stmt->error;
     }

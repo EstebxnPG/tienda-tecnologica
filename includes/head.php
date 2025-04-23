@@ -95,4 +95,24 @@
 .title-product{
     margin-top: 6rem;
 }
+/* Estilo para el botón de eliminar */
+.eliminar__boton {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.eliminar__boton:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el ratón */
+}
+
+.eliminar__boton:active {
+    background-color: #bd2130; /* Rojo aún más oscuro al hacer clic */
+}
+
 </style>

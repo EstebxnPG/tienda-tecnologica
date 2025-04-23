@@ -38,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['email'] = $row['email'];
             $_SESSION['nombre'] = $row['nombre'];
             $_SESSION['rol'] = 'usuario';
+            $_SESSION['usuario_id'] = $row['id'];
+
 
             echo "<script>
             alert('¡Inicio Sesión Exitoso!');

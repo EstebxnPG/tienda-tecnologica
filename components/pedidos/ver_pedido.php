@@ -1,8 +1,3 @@
-<?php
-include '../../config/conexion.php';
-
-$resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
-?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -164,66 +159,67 @@ $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
         }
     </style>
 </head>
-
-<body>
-    <div class="container">
-        <div class="actions-bar">
-            <h1>Gestión de Pedidos</h1>
-            <a href="../../index.php">VOLVER</a>
-            <a href="crear_pedido.php" class="btn-nuevo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 4px;" viewBox="0 0 16 16">
-                    <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
-                </svg>
-                Nuevo Pedido
-            </a>
-        </div>
-        
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Usuario ID</th>
-                        <th>Provincia</th>
-                        <th>Localidad</th>
-                        <th>Dirección</th>
-                        <th>Coste</th>
-                        <th>Estado</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while($pedido = $resultado->fetch_assoc()): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($pedido['id']); ?></td>
-                        <td><?php echo htmlspecialchars($pedido['usuario_id']); ?></td>
-                        <td><?php echo htmlspecialchars($pedido['provincia']); ?></td>
-                        <td><?php echo htmlspecialchars($pedido['localidad']); ?></td>
-                        <td><?php echo htmlspecialchars($pedido['direccion']); ?></td>
-                        <td class="precio">$<?php echo number_format($pedido['coste'], 2); ?></td>
-                        <td>
-                            <span class="estado estado-<?php echo strtolower($pedido['estado']); ?>">
-                                <?php echo ucfirst($pedido['estado']); ?>
-                            </span>
-                        </td>
-                        <td><?php echo htmlspecialchars($pedido['fecha']); ?></td>
-                        <td><?php echo htmlspecialchars($pedido['hora']); ?></td>
-                        <td class="acciones">
-                            <a href="editar_pedido.php?id=<?php echo $pedido['id']; ?>" class="btn-accion btn-editar">Editar</a>
-                            <a href="eliminar_pedido.php?id=<?php echo $pedido['id']; ?>" 
-                               onclick="return confirm('¿Está seguro de que desea eliminar este pedido?')" 
-                               class="btn-accion btn-eliminar">Eliminar</a>
-                        </td>
-                    </tr>
-                    <?php endwhile; ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</body>
-</html>
 <?php
-$conn->close();
+// Conexión a la base de datos
+$conexion = new mysqli("localhost", "root", "", "tienda_sena");
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
+}
+
+// Obtener ID del pedido desde la URL
+$pedido_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+if ($pedido_id <= 0) {
+    echo "ID de pedido inválido.";
+    exit;
+}
+
+// Consulta para obtener datos del pedido
+$sql_pedido = "SELECT p.*, u.nombre, u.apellidos 
+               FROM pedidos p 
+               INNER JOIN usuarios u ON p.usuario_id = u.id 
+               WHERE p.id = $pedido_id";
+$resultado_pedido = $conexion->query($sql_pedido);
+
+if ($resultado_pedido->num_rows > 0) {
+    $pedido = $resultado_pedido->fetch_assoc();
+    echo "<h2>Detalles del Pedido #{$pedido['id']}</h2>";
+    echo "<p><strong>Cliente:</strong> {$pedido['nombre']} {$pedido['apellidos']}</p>";
+    echo "<p><strong>Dirección:</strong> {$pedido['direccion']}, {$pedido['localidad']}, {$pedido['provincia']}</p>";
+    echo "<p><strong>Estado:</strong> {$pedido['estado']}</p>";
+    echo "<p><strong>Fecha:</strong> {$pedido['fecha']} - <strong>Hora:</strong> {$pedido['hora']}</p>";
+    echo "<p><strong>Costo Total:</strong> $ {$pedido['coste']}</p>";
+} else {
+    echo "Pedido no encontrado.";
+    exit;
+}
+
+// Consulta para obtener los productos del pedido
+$sql_productos = "SELECT lp.unidades, pr.nombre, pr.precio
+                  FROM lineas_pedidos lp
+                  INNER JOIN productos pr ON lp.producto_id = pr.id
+                  WHERE lp.pedido_id = $pedido_id";
+$resultado_productos = $conexion->query($sql_productos);
+
+echo "<h3>Productos en el Pedido:</h3>";
+echo "<table border='1' cellpadding='8'>
+        <tr>
+            <th>Producto</th>
+            <th>Precio Unitario</th>
+            <th>Unidades</th>
+            <th>Total</th>
+        </tr>";
+
+while ($producto = $resultado_productos->fetch_assoc()) {
+    $total_producto = $producto['precio'] * $producto['unidades'];
+    echo "<tr>
+            <td>{$producto['nombre']}</td>
+            <td>$ {$producto['precio']}</td>
+            <td>{$producto['unidades']}</td>
+            <td>$ {$total_producto}</td>
+          </tr>";
+}
+echo "</table>";
+
+$conexion->close();
 ?>

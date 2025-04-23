@@ -1,5 +1,4 @@
 <?php
-// Conexión a la base de datos (ajusta tus credenciales)
 $dsn = "mysql:host=localhost;dbname=tienda_sena;charset=utf8mb4";
 $usuario = "root";
 $contrasena = "";
@@ -11,7 +10,6 @@ try {
     die("Error de conexión: " . $e->getMessage());
 }
 
-// Actualizar estado del pedido si se envió el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cambiar_estado'])) {
     $idPedido = $_POST['id'];
     $nuevoEstado = $_POST['estado_nuevo'];
