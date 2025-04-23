@@ -7,7 +7,7 @@ include '../../config/conexion.php';
 <head>
     <meta charset="UTF-8">
     <title>Listado de Categorías</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_categoria.css">
     <?php include '../../includes/head.php'; ?>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Cargando jQuery -->
     <script src="app.js"></script> <!-- Incluido el archivo JS desde la carpeta categorias -->
@@ -50,7 +50,7 @@ include '../../config/conexion.php';
         </table>
 
         <br>
-        <div class="botones__catgoria">
+        <div class="botones__categoria">
             <a href="categorias.php" class="button__confirmation">CREAR UNA CATEGORIA</a>
             <a href="/tienda-tecnologica/index.php" class="volver">← Volver</a>
         </div>
