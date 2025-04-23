@@ -55,4 +55,44 @@
     background-color: gray;
 }
 
+.botones__catgoria{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+.button__confirmation{
+    color: white;
+    background-color: green;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+/* Agrega esto a tu archivo style.css */
+.button-detalles {
+    background: #4E5D6C;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 10px auto;
+    border-radius: 5px;
+    color: orange;
+    font-weight: 700;
+    display: block;
+    width: 50%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.button-detalles:hover {
+    background-color: #364049;
+    cursor: pointer;
+    text-decoration: none;
+    color: #f2f2f2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+} 
+
+.title-product{
+    margin-top: 6rem;
+}
 </style>

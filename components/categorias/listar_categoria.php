@@ -9,12 +9,14 @@ include '../../config/conexion.php';
     <title>Listado de Categorías</title>
     <link rel="stylesheet" href="styles.css">
     <?php include '../../includes/head.php'; ?>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Cargar jQuery -->
-    <script src="app.js"></script> <!-- Incluir el archivo JS desde la carpeta categorias -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Cargando jQuery -->
+    <script src="app.js"></script> <!-- Incluido el archivo JS desde la carpeta categorias -->
 </head>
 <body>
 
 <?php include '../../includes/header.php'; ?>
+
+
 
 <div class="super__container">
     <div class="container">
@@ -48,7 +50,10 @@ include '../../config/conexion.php';
         </table>
 
         <br>
-        <a href="categorias.php" class="volver">← Volver a Crear Categoría</a>
+        <div class="botones__catgoria">
+            <a href="categorias.php" class="button__confirmation">CREAR UNA CATEGORIA</a>
+            <a href="/tienda-tecnologica/index.php" class="volver">← Volver</a>
+        </div>
     </div>
 </div>
 

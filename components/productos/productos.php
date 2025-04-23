@@ -1,5 +1,4 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "tienda_sena");
 $conexion->set_charset("utf8");
 
 $sql = "SELECT * FROM productos";

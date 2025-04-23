@@ -24,9 +24,13 @@
                     <input type="text" class="form__input" id="nombre" name="nombre" placeholder="Ej: Tecnología" required>
                     
                     <button type="submit" class="login-button__form">CREAR CATEGORÍA</button>
+                    <a href="listar_categoria.php" class="">LISTADO CATEGORIAS</a>
                 </form>
             </div>
         </div>
     </div>
 </body>
 </html>
+
+<br>
+
