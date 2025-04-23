@@ -27,7 +27,7 @@ if (isset($_SESSION['carrito'])) {
                   echo '  <img src="/tienda-tecnologica/components/productos/uploads/images/' . htmlspecialchars($producto['imagen']) . '" class="card-img">';
                   echo '  <h5>' . htmlspecialchars($producto['nombre']) . '</h5>';
                   echo '  <p>SKU: PROD' . str_pad($producto['id'], 7, "0", STR_PAD_LEFT) . '</p>';
-                  echo '  <p>S/.<small class="precio">' . number_format($producto['precio'], 2) . '</small></p>';
+                  echo '  <p>(USD).<small class="precio">' . number_format($producto['precio'], 2) . '</small></p>';
                   echo '<a href="/tienda-tecnologica/components/productos/producto_detalle.php?id=' . $producto['id'] . '" class="button-detalles">Ver Detalles</a>';
                   echo '  <a href="/tienda-tecnologica/components/carrito/agregar_carrito.php?id=' . $producto['id'] . '" class="button">Comprar</a>';
                   echo '</div>';
