@@ -1,6 +1,8 @@
 <?php
 include __DIR__ . '/../../config/conexion.php';
 include '../../includes/header.php'; 
+include '../../includes/validador.php';
+
 
 
 // Obtener el ID de la categoría desde la URL

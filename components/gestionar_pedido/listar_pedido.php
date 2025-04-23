@@ -1,5 +1,7 @@
 <?php
 include '../../config/conexion.php';
+include '../../includes/validador.php';
+
 
 $resultado = $conn->query("SELECT * FROM pedidos ORDER BY fecha DESC");
 ?>

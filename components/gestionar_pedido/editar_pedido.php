@@ -1,5 +1,7 @@
 <?php
 include '../../config/conexion.php';
+include '../../includes/validador.php';
+
 
 if (!isset($_GET['id'])) {
     header('Location: listar_pedido.php');

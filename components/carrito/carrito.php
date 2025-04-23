@@ -1,15 +1,18 @@
 <script>
     // Función para actualizar el subtotal y el total global
     function actualizarTotales() {
-        let subtotal = 0;
-        let filas = document.querySelectorAll("#lista-compra tbody tr");
+    let subtotal = 0;
+    let filas = document.querySelectorAll("#lista-compra tbody tr");
 
-        // Iterar por cada fila del carrito
-        filas.forEach(function(fila) {
-            const cantidadInput = fila.querySelector("input[name^='cantidad']");
-            const precio = parseFloat(fila.querySelector("td:nth-child(3)").innerText.replace(" USD", ""));
-            const cantidad = parseInt(cantidadInput.value);
-            const subtotalProducto = precio * cantidad;
+    filas.forEach(function(fila) {
+        const cantidadInput = fila.querySelector("input[name^='cantidad']");
+        const stockDisponible = parseInt(fila.querySelector("td:nth-child(3)").dataset.stock);
+        const cantidad = parseInt(cantidadInput.value);
+        
+        if (cantidad > stockDisponible) {
+            cantidadInput.value = stockDisponible;
+            cantidad = stockDisponible;
+        }
 
             // Actualizar el subtotal por producto en la tabla
             fila.querySelector(".subtotal").innerText = subtotalProducto.toFixed(2) + " USD";
@@ -54,7 +57,6 @@ if (!isset($_SESSION['carrito'])) {
 }
 
 $subtotal = 0;
-$igv = 0;
 $total = 0;
 
 $productos = [];
@@ -78,8 +80,8 @@ foreach ($_SESSION['carrito'] as $producto_id => $cantidad) {
     }
 }
 
-$igv = $subtotal * 0.18; 
-$total = $subtotal + $igv;
+
+$total = $subtotal ;
 ?>
 
 
@@ -108,10 +110,7 @@ $total = $subtotal + $igv;
         <label for="direccion" class="">Dirección :</label>
         <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" required>
     </div>
-    <div class="contenido titulo">
-        <label for="correo" class="">Correo :</label>
-        <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo" required>
-    </div>
+    
     <div class="contenido titulo">
         <label for="metodo_pago" class="">Método de pago :</label>
         <select class="form-control" id="metodo_pago" name="metodo_pago" required>
@@ -144,8 +143,17 @@ $total = $subtotal + $igv;
                           <input type="hidden" name="precio[<?= $producto['id'] ?>]" value="<?= $producto['precio'] ?>">
                       </td>
                       <td>
-                          <input type="number" name="cantidad[<?= $producto['id'] ?>]" value="<?= $producto['cantidad'] ?>" min="1" class="cantidad" data-precio="<?= $producto['precio'] ?>" data-id="<?= $producto['id'] ?>" required>
-                      </td>
+                        <input type="number" 
+                            name="cantidad[<?= $producto['id'] ?>]" 
+                            value="<?= $producto['cantidad'] ?>" 
+                            min="1" 
+                            max="<?= $producto['stock'] ?>" 
+                            class="cantidad" 
+                            data-precio="<?= $producto['precio'] ?>" 
+                            data-id="<?= $producto['id'] ?>" 
+                            required
+                            onchange="val   idarStock(this, <?= $producto['stock'] ?>)">
+                    </td>
                       <td class="subtotal" data-precio="<?= $producto['precio'] ?>" data-cantidad="<?= $producto['cantidad'] ?>">
                           <?= number_format($producto['precio'] * $producto['cantidad'], 2) ?> USD
                       </td>
@@ -157,10 +165,6 @@ $total = $subtotal + $igv;
             <tr>
                 <th colspan="4">SUB TOTAL :</th>
                 <th id="subtotal"><?= number_format($subtotal, 2) ?> USD</th>
-            </tr>
-            <tr>
-                <th colspan="4">IGV (18%) :</th>
-                <th id="igv"><?= number_format($igv, 2) ?> USD</th>
             </tr>
             <tr>
                 <th colspan="4">TOTAL :</th>
@@ -183,3 +187,15 @@ $total = $subtotal + $igv;
 
 </body>
 </html>
+
+<script>
+function validarStock(input, stockDisponible) {
+    if (parseInt(input.value) > stockDisponible) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Stock insuficiente',
+            text: `Solo hay ${stockDisponible} unidades disponibles`,
+        });
+        input.value = stockDisponible;
+    }
+}

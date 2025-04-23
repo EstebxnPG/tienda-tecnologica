@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Insertar pedido principal
+    // Insertar pedido principal (ESTA PARTE FALTABA)
     $sql = "INSERT INTO pedidos (usuario_id, provincia, localidad, direccion, coste, estado, fecha, hora) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     
@@ -32,27 +32,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("isssdsss", $usuario_id, $provincia, $localidad, $direccion, $total, $estado, $fecha, $hora);
 
     if ($stmt->execute()) {
-        $pedido_id = $conn->insert_id; // Obtener el ID del pedido
+        $pedido_id = $conn->insert_id;
 
-        // Insertar productos en lineas_pedidos
+        // Insertar productos en lineas_pedidos y actualizar stock
         if (isset($_POST['cantidad']) && is_array($_POST['cantidad'])) {
             foreach ($_POST['cantidad'] as $producto_id => $unidades) {
                 if ($unidades > 0) {
+                    // Insertar línea de pedido
                     $sql_linea = "INSERT INTO lineas_pedidos (pedido_id, producto_id, unidades) 
-                                  VALUES (?, ?, ?)";
+                                VALUES (?, ?, ?)";
                     $stmt_linea = $conn->prepare($sql_linea);
                     $stmt_linea->bind_param("iii", $pedido_id, $producto_id, $unidades);
                     $stmt_linea->execute();
+                    
+                    // Actualizar stock del producto
+                    $sql_update = "UPDATE productos SET stock = stock - ? WHERE id = ?";
+                    $stmt_update = $conn->prepare($sql_update);
+                    $stmt_update->bind_param("ii", $unidades, $producto_id);
+                    $stmt_update->execute();
                 }
             }
         }
 
-        // Limpiar carrito en sesión
-        if (isset($_SESSION['carrito'])) {
-            unset($_SESSION['carrito']);
-        }
-
-        // Limpiar cookie del carrito
+        // Limpiar carrito
+        unset($_SESSION['carrito']);
         if (isset($_COOKIE['carrito'])) {
             setcookie('carrito', '', time() - 3600, '/');
         }

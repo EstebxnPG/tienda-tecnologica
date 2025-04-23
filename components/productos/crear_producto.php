@@ -9,6 +9,8 @@
 <body>
     <?php
     include __DIR__ . '/../../config/conexion.php';
+    include '../../includes/validador.php';
+
     
     // Consulta para obtener las categorías
     $sql_categorias = "SELECT * FROM categorias";

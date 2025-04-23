@@ -1,5 +1,6 @@
 <?php 
 include '../../config/conexion.php';
+include '../../includes/validador.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
