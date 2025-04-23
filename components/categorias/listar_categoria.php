@@ -1,5 +1,6 @@
 <?php 
 include '../../config/conexion.php';
+include '../../includes/validador.php';
 ?>
 
 <!DOCTYPE html>

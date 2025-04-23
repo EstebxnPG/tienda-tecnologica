@@ -1,5 +1,7 @@
 <?php
 include '../../config/conexion.php';
+include '../../includes/validador.php';
+
 
 $usuario_id = $_POST['usuario_id'];
 $provincia = $_POST['provincia'];
