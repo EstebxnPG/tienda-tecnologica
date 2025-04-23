@@ -9,42 +9,47 @@ class Carrito{
         }
     }
 
-    leerDatosProducto(producto){
-        const infoProducto ={
-            imagen : producto.querySelector('img').src,
-            titulo : producto.querySelector('h5').textContent,
-            precio : producto.querySelector('.precio').textContent,
-            id : producto.querySelector('a').getAttribute('data-id'),
-            cantidad : 1
-        }
-        let productosLS;
-        productosLS = this.obtenerProductosLocalStorage();
-        productosLS.forEach(function(productoLS){
-            if(productoLS.id === infoProducto.id){
-                productosLS = productoLS.id;
-            }
-        });
-        if(productosLS === infoProducto.id){
-            //console.log('El producto ya está agregado');
+    // En el método leerDatosProducto
+leerDatosProducto(producto){
+    const infoProducto = {
+        imagen: producto.querySelector('img').src,
+        titulo: producto.querySelector('h5').textContent,
+        precio: producto.querySelector('.precio').textContent,
+        id: producto.querySelector('a').getAttribute('data-id'),
+        stock: parseInt(producto.querySelector('.stock').textContent), // Añadir stock
+        cantidad: 1
+    }
+    
+    let productosLS = this.obtenerProductosLocalStorage();
+    let productoExistente = productosLS.find(p => p.id === infoProducto.id);
+    
+    if(productoExistente) {
+        if(productoExistente.cantidad >= infoProducto.stock) {
             Swal.fire({
                 icon: 'warning',
-                title: 'No tenemos stock suficiente, prueba con menos unidades',
+                title: 'No hay suficiente stock disponible',
+                text: `Solo quedan ${infoProducto.stock} unidades`,
                 timer: 2500,
                 showConfirmButton: false
-            })
+            });
+            return;
         }
-        else{
-            this.insertarCarrito(infoProducto);
-            //console.log(infoProducto);
-            Swal.fire({
-                icon: 'success',
-                title: 'Agregado',
-                timer: 2500,
-                showConfirmButton: false
-            })
-        }
-        
+        productoExistente.cantidad += 1;
+    } else {
+        productosLS.push(infoProducto);
     }
+    
+    localStorage.setItem('productos', JSON.stringify(productosLS));
+    
+    Swal.fire({
+        icon: 'success',
+        title: 'Producto agregado',
+        timer: 2500,
+        showConfirmButton: false
+    });
+    
+    this.actualizarCarrito();
+}
 
     insertarCarrito(producto){
         const row = document.createElement('tr');
