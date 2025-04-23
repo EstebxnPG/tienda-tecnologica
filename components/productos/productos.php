@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . '/../../config/conexion.php';
+
 $conn->set_charset("utf8");
 
 $sql = "SELECT * FROM productos";

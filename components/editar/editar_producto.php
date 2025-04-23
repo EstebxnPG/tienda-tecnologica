@@ -1,5 +1,7 @@
 <?php 
 include '../../config/conexion.php';
+include '../../includes/validador.php';
+
 
 // Obtener el ID del producto a editar
 if (!isset($_GET['id'])) {

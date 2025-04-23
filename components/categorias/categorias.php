@@ -10,7 +10,9 @@
 </head>
 <body>
 
-<?php include '../../includes/header.php'; ?>
+<?php include '../../includes/header.php'; 
+include '../../includes/validador.php';?>
+
 
     <div class="super__container">
         <div class="container">
